@@ -72,59 +72,59 @@
 		onclick="minimap_goto(get(linkedscene));"
 		/>
 
-			<layer name="mmspot_scene_matdat_01" style="minimap_spot"
-	       x="824" y="21" heading="0" mmgroup="matdat"
+		<layer name="mmspot_scene_matdat_01" style="minimap_spot"
+	       x="824" y="21" heading="267" mmgroup="matdat"
 	       linkedscene="scene_matdat_01" spottitle="matdat_01" />
 	<layer name="mmspot_scene_matdat_02" style="minimap_spot"
-	       x="670" y="17" heading="0" mmgroup="matdat"
+	       x="672" y="11" heading="267" mmgroup="matdat"
 	       linkedscene="scene_matdat_02" spottitle="matdat_02" />
 	<layer name="mmspot_scene_matdat_03" style="minimap_spot"
 	       x="622" y="-21" heading="0" mmgroup="matdat"
 	       linkedscene="scene_matdat_03" spottitle="matdat_03" />
 	<layer name="mmspot_scene_matdat_04" style="minimap_spot"
-	       x="592" y="17" heading="0" mmgroup="matdat"
+	       x="602" y="27" heading="272" mmgroup="matdat"
 	       linkedscene="scene_matdat_04" spottitle="matdat_04" />
 	<layer name="mmspot_scene_matdat_05" style="minimap_spot"
-	       x="614" y="-111" heading="0" mmgroup="matdat"
+	       x="598" y="-95" heading="0" mmgroup="matdat"
 	       linkedscene="scene_matdat_05" spottitle="matdat_05" />
 	<layer name="mmspot_scene_matdat_06" style="minimap_spot"
-	       x="544" y="-181" heading="0" mmgroup="matdat"
+	       x="542" y="-187" heading="283" mmgroup="matdat"
 	       linkedscene="scene_matdat_06" spottitle="matdat_06" />
 	<layer name="mmspot_scene_matdat_08" style="minimap_spot"
-	       x="414" y="-219" heading="0" mmgroup="matdat"
+	       x="412" y="-227" heading="278" mmgroup="matdat"
 	       linkedscene="scene_matdat_08" spottitle="matdat_08" />
 	<layer name="mmspot_scene_matdat_09" style="minimap_spot"
-	       x="510" y="49" heading="0" mmgroup="matdat"
+	       x="514" y="47" heading="245" mmgroup="matdat"
 	       linkedscene="scene_matdat_09" spottitle="matdat_09" />
 	<layer name="mmspot_scene_matdat_10" style="minimap_spot"
-	       x="438" y="105" heading="0" mmgroup="matdat"
+	       x="436" y="111" heading="235" mmgroup="matdat"
 	       linkedscene="scene_matdat_10" spottitle="matdat_10" />
 	<layer name="mmspot_scene_matdat_11" style="minimap_spot"
-	       x="594" y="387" heading="0" mmgroup="matdat"
+	       x="590" y="383" heading="326" mmgroup="matdat"
 	       linkedscene="scene_matdat_11" spottitle="matdat_11" />
 	<layer name="mmspot_scene_matdat_12" style="minimap_spot"
-	       x="382" y="155" heading="0" mmgroup="matdat"
+	       x="376" y="165" heading="251" mmgroup="matdat"
 	       linkedscene="scene_matdat_12" spottitle="matdat_12" />
 	<layer name="mmspot_scene_matdat_13" style="minimap_spot"
-	       x="440" y="171" heading="0" mmgroup="matdat"
+	       x="444" y="181" heading="326" mmgroup="matdat"
 	       linkedscene="scene_matdat_13" spottitle="matdat_13" />
 	<layer name="mmspot_scene_matdat_14" style="minimap_spot"
-	       x="242" y="211" heading="0" mmgroup="matdat"
+	       x="222" y="219" heading="342" mmgroup="matdat"
 	       linkedscene="scene_matdat_14" spottitle="matdat_14" />
 	<layer name="mmspot_scene_matdat_15" style="minimap_spot"
-	       x="84" y="267" heading="0" mmgroup="matdat"
+	       x="84" y="267" heading="79" mmgroup="matdat"
 	       linkedscene="scene_matdat_15" spottitle="matdat_15" />
 	<layer name="mmspot_scene_matdat_16" style="minimap_spot"
-	       x="44" y="237" heading="0" mmgroup="matdat"
+	       x="36" y="225" heading="347" mmgroup="matdat"
 	       linkedscene="scene_matdat_16" spottitle="matdat_16" />
 	<layer name="mmspot_scene_matdat_17" style="minimap_spot"
-	       x="16" y="281" heading="0" mmgroup="matdat"
+	       x="2" y="277" heading="278" mmgroup="matdat"
 	       linkedscene="scene_matdat_17" spottitle="matdat_17" />
 	<layer name="mmspot_scene_matdat_18" style="minimap_spot"
-	       x="-156" y="215" heading="0" mmgroup="matdat"
+	       x="-160" y="205" heading="15" mmgroup="matdat"
 	       linkedscene="scene_matdat_18" spottitle="matdat_18" />
 	<layer name="mmspot_scene_matdat_19" style="minimap_spot"
-	       x="-242" y="185" heading="0" mmgroup="matdat"
+	       x="-254" y="179" heading="288" mmgroup="matdat"
 	       linkedscene="scene_matdat_19" spottitle="matdat_19" />
 	<layer name="mmspot_scene_trencao_01" style="minimap_spot"
 	       x="838" y="17" heading="0" mmgroup="trencao"

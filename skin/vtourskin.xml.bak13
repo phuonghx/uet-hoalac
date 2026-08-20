@@ -326,61 +326,29 @@
 		action thoat im lang va khong tao duoc nhan nao.
 	-->
 	<!--
-		======================================================================
-		Nhan ten scene cho hotspot chi duong (style skin_aheadstyle)
-		======================================================================
+		Tao nhan ten scene cho mot hotspot chi duong.
 
-		Goi tu onloaded cua TUNG HOTSPOT:
-
-		    <hotspot ... style="skin_aheadstyle"
-		             onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-
-		KHONG goi tu <style> bang onloaded.addevent - trong pham vi do get(name)
-		ra rong, moi hotspot tao chung mot layer ten "_label" de len nhau nen ca
-		scene chi hien mot nhan.
-
-		Ten layer dat theo linkedscene: trong mot scene moi mui ten tro toi mot
-		scene khac nhau nen khong the trung.
+		TRUYEN THANG ten hotspot va scene dich vao tham so, KHONG dung get(name)
+		ben trong. Ly do: action duoc goi tu onloaded.addevent cua <style>, o do
+		pham vi khong chac la hotspot -> get(name) co the ra rong, khi do moi
+		hotspot deu tao ra cung mot layer ten "_label" va de len nhau, ca scene
+		chi con thay dung mot nhan.
 	-->
-	<action name="skin_ahead_label">
-		if(linkedscene,
-
-			<!--
-				Mui ten chevron dat distorted="true" de nam ap mat dat.
-				Docs krpano: "Distorted hotspots can't and shouldn't have
-				children elements" - gan nhan thang vao no thi nhan bi keo vao
-				khong gian 3D, phong to thu nho theo pano.
-
-				Nen tao them mot HOTSPOT NEO trong suot (skin/blank.png) o dung
-				vi tri do, KHONG distorted. Hotspot thuong co zoom="false" mac
-				dinh -> khong doi co khi zoom, va nhan lam con cua no cung vay.
-			-->
-			txtadd(anchor, 'lblanchor_', get(linkedscene));
-			addhotspot(get(anchor));
-			set(hotspot[get(anchor)].url, 'skin/blank.png');
-			copy(hotspot[get(anchor)].ath, ath);
-			copy(hotspot[get(anchor)].atv, atv);
-			set(hotspot[get(anchor)].distorted, false);
-			set(hotspot[get(anchor)].zoom, false);
-			set(hotspot[get(anchor)].enabled, false);
-			set(hotspot[get(anchor)].handcursor, false);
-			set(hotspot[get(anchor)].zorder, '4');
-
-			txtadd(lb, 'lbl_', get(linkedscene));
-			txtadd(lbparent, 'hotspot[', get(anchor), ']');
+	<action name="skin_ahead_label" args="hsname, dstscene">
+		if(dstscene,
+			txtadd(local.lb, get(hsname), '_label');
 
 			addlayer(get(lb));
 			set(layer[get(lb)].type, 'text');
-			set(layer[get(lb)].parent, get(lbparent));
+			copy(layer[get(lb)].html, scene[get(dstscene)].title);
 
-			copy(layer[get(lb)].html, scene[get(linkedscene)].title);
+			<!-- nho ten hotspot de skin_labels_update biet bam theo cai nao -->
+			set(layer[get(lb)].hsname, get(hsname));
 
-			set(layer[get(lb)].align, 'center');
+			set(layer[get(lb)].align, 'lefttop');
 			set(layer[get(lb)].edge, 'bottom');
-			set(layer[get(lb)].x, '0');
-			<!-- do cao cua nhan so voi mui ten: cang am cang len cao -->
-			set(layer[get(lb)].y, '-48');
 			set(layer[get(lb)].zorder, '5');
+			set(layer[get(lb)].visible, false);
 			set(layer[get(lb)].enabled, false);
 			set(layer[get(lb)].handcursor, false);
 			set(layer[get(lb)].bgcolor, '0x101820');
@@ -390,7 +358,49 @@
 			set(layer[get(lb)].padding, '3 11');
 			set(layer[get(lb)].css, 'color:#FFFFFF; font-family:Arial; font-size:13px; font-weight:600;');
 
-			trace('[nhan] ', get(lb), ' neo vao ', get(anchor), ' | ath=', get(ath));
+			trace('[nhan] ', get(lb), ' -> ', get(layer[get(lb)].html));
+			skin_labels_update();
+		);
+	</action>
+
+
+	<!--
+		Dat nhan theo toa do MAN HINH thay vi lam con cua hotspot.
+
+		Ly do: docs krpano - "khi dung WebGL-hotspot lam parent, hotspot tu
+		chuyen thanh CSS3D-hotspot". Luc do nhan bi keo vao khong gian 3D nen
+		phong to/thu nho theo pano. Dat o tang man hinh thi co chu luon co dinh.
+
+		Duyet theo LAYER (cai nao co thuoc tinh hsname thi la nhan), roi tra
+		nguoc ve hotspot tuong ung - chac chan hon la duyet hotspot roi doan ten.
+	-->
+	<events name="skin_labels_sync" keep="true"
+		onviewchange="skin_labels_update();"
+		onnewpano="skin_labels_update();"
+		onresize="skin_labels_update();"
+		/>
+
+	<action name="skin_labels_update">
+		for(set(i,0), i LT layer.count, inc(i),
+			if(layer[get(i)].hsname !== null,
+				copy(hn, layer[get(i)].hsname);
+				if(hotspot[get(hn)] !== null,
+
+					sub(dh, get(hotspot[get(hn)].ath), get(view.hlookat));
+					if(dh GT 180,  sub(dh, 360); );
+					if(dh LT -180, add(dh, 360); );
+					if(dh LT 0, mul(dh, -1); );
+
+					if(dh LT 85,
+						spheretoscreen(get(hotspot[get(hn)].ath), get(hotspot[get(hn)].atv), sx, sy);
+						set(layer[get(i)].x, get(sx));
+						calc(layer[get(i)].y, sy - 26);
+						set(layer[get(i)].visible, true);
+					  ,
+						set(layer[get(i)].visible, false);
+					);
+				);
+			);
 		);
 	</action>
 
@@ -429,6 +439,7 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
+	       onloaded.addevent="animation_hotspot(128,128,20,25); skin_ahead_label(get(name), get(linkedscene));"
 	       onover.addevent="tween(scale,0.68,0.2,easeoutquad);"
 	       onout.addevent="tween(scale,0.60,0.2,easeoutquad);"
 	       />

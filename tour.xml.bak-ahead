@@ -96,8 +96,7 @@
 		         ath="-177.817" atv="-30.273"
 		         linkedscene="scene_trencao_01"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="1.541" atv="4.473" linkedscene="scene_matdat_02"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="1.541" atv="4.473" linkedscene="scene_matdat_02" />
 
 
 
@@ -121,10 +120,8 @@
 		         ath="0.361" atv="-32.588"
 		         linkedscene="scene_trencao_02"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-179.337" atv="5.327" linkedscene="scene_matdat_01"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="29.675" atv="3.617" linkedscene="scene_matdat_03"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" linkedscene_lookat="-70.34,-14.42,140"/>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-179.337" atv="5.327" linkedscene="scene_matdat_01" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="29.675" atv="3.617" linkedscene="scene_matdat_03" />
 
 
 	</scene>
@@ -147,12 +144,9 @@
 		         ath="171.900" atv="-38.000"
 		         linkedscene="scene_trencao_02"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="120.539" atv="0.360" linkedscene="scene_matdat_02"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" linkedscene_lookat="182.1,-6.17,120"/>
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-133.546" atv="0.759" linkedscene="scene_matdat_04"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot3" style="skin_aheadstyle" ath="-5.496" atv="2.721" linkedscene="scene_matdat_05"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="120.539" atv="0.360" linkedscene="scene_matdat_02" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-133.546" atv="0.759" linkedscene="scene_matdat_04" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-5.496" atv="2.721" linkedscene="scene_matdat_05" />
 
 
 	</scene>
@@ -175,10 +169,8 @@
 		         ath="66.800" atv="-38.000"
 		         linkedscene="scene_trencao_02"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-124.917" atv="5.843" linkedscene="scene_matdat_02" linkedscene_lookat="182.1,-6.17,120"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="1.187" atv="6.213" linkedscene="scene_matdat_09"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-124.917" atv="5.843" linkedscene="scene_matdat_02" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="1.187" atv="6.213" linkedscene="scene_matdat_09" />
 
 
 	</scene>
@@ -194,10 +186,8 @@
 		<image prealign="0.700097|-0.010792|1.766356">
 			<cube url="panos/matdat_05.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,2816" />
 		</image>
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-178.661" atv="2.074" linkedscene="scene_matdat_03"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" linkedscene_lookat="174.96,-13.72,138"/>
-		<hotspot name="spot2" style="skin_aheadstyle" ath="2.583" atv="5.198" linkedscene="scene_matdat_06"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" linkedscene_lookat="0,0,120"/>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.661" atv="2.074" linkedscene="scene_matdat_03" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="2.583" atv="5.198" linkedscene="scene_matdat_06" />
 
 	</scene>
 
@@ -212,10 +202,8 @@
 		<image prealign="-0.547355|0.015789|1.521829">
 			<cube url="panos/matdat_06.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,3136" />
 		</image>
-		<hotspot name="spot1" style="skin_aheadstyle" ath="178.105" atv="-1.339" linkedscene="scene_matdat_05" linkedscene_lookat="189.27,-4.44,120"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="0.967" atv="0.113" linkedscene="scene_matdat_08"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="178.105" atv="-1.339" linkedscene="scene_matdat_05" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="0.967" atv="0.113" linkedscene="scene_matdat_08" />
 
 	</scene>
 
@@ -239,8 +227,7 @@
 		         ath="0.000" atv="-38.000"
 		         linkedscene="scene_trencao_03"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="179.583" atv="-3.381" linkedscene="scene_matdat_06"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" linkedscene_lookat="182.86,-7.64,120" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.583" atv="-3.381" linkedscene="scene_matdat_06" />
 
 
 	</scene>
@@ -256,10 +243,8 @@
 		<image prealign="-0.001981|-0.000037|-1.6">
 			<cube url="panos/matdat_09.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,2816" />
 		</image>
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-179.587" atv="-6.075" linkedscene="scene_matdat_04" linkedscene_lookat="181.94,-7.53,140"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-0.416" atv="0.352" linkedscene="scene_matdat_10"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-179.587" atv="-6.075" linkedscene="scene_matdat_04" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-0.416" atv="0.352" linkedscene="scene_matdat_10" />
 
 	</scene>
 
@@ -281,10 +266,8 @@
 		         ath="-135.000" atv="-38.000"
 		         linkedscene="scene_trencao_05"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-177.961" atv="0.029" linkedscene="scene_matdat_09" linkedscene_lookat="180.01,-14.21,120"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="42.762" atv="5.743" linkedscene="scene_matdat_12"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-177.961" atv="0.029" linkedscene="scene_matdat_09" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="42.762" atv="5.743" linkedscene="scene_matdat_12" />
 
 
 	</scene>
@@ -307,8 +290,7 @@
 		         ath="-1.892" atv="-47.127"
 		         linkedscene="scene_trencao_06"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="0.000" atv="9.124" linkedscene="scene_matdat_13"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="0.000" atv="9.124" linkedscene="scene_matdat_13" />
 
 
 	</scene>
@@ -331,10 +313,8 @@
 		         ath="63.400" atv="-38.000"
 		         linkedscene="scene_trencao_05"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-129.120" atv="5.720" linkedscene="scene_matdat_13" linkedscene_lookat="113.91,-21.49,140"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="3.169" atv="-0.510" linkedscene="scene_matdat_14"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-129.120" atv="5.720" linkedscene="scene_matdat_13" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="3.169" atv="-0.510" linkedscene="scene_matdat_14" />
 
 
 	</scene>
@@ -357,10 +337,8 @@
 		         ath="-11.590" atv="-38.912"
 		         linkedscene="scene_trencao_05"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="56.775" atv="0.262" linkedscene="scene_matdat_10" linkedscene_lookat="183.18,-1.71,129"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="179.715" atv="-2.463" linkedscene="scene_matdat_11"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="56.775" atv="0.262" linkedscene="scene_matdat_10" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="179.715" atv="-2.463" linkedscene="scene_matdat_11" />
 
 
 	</scene>
@@ -369,17 +347,15 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-91.608" vlookat="-1.900" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/matdat_14.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/matdat_14.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,2816" />
 		</image>
-		<hotspot name="spot1" style="skin_aheadstyle" ath="95.440" atv="2.942" linkedscene="scene_matdat_12"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-85.427" atv="8.281" linkedscene="scene_matdat_17"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="95.440" atv="2.942" linkedscene="scene_matdat_12" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-85.427" atv="8.281" linkedscene="scene_matdat_17" />
 
 	</scene>
 
@@ -387,7 +363,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-175.225" vlookat="-1.615" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/matdat_15.tiles/preview.jpg" />
 
@@ -401,10 +377,8 @@
 		         ath="-95.200" atv="-38.000"
 		         linkedscene="scene_trencao_07"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="2.159" atv="5.518" linkedscene="scene_matdat_14"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-139.152" atv="7.520" linkedscene="scene_matdat_16"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="2.159" atv="5.518" linkedscene="scene_matdat_14" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-139.152" atv="7.520" linkedscene="scene_matdat_16" />
 
 
 	</scene>
@@ -427,10 +401,8 @@
 		         ath="174.300" atv="-38.000"
 		         linkedscene="scene_trencao_07"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="121.098" atv="5.625" linkedscene="scene_matdat_15"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-110.628" atv="7.132" linkedscene="scene_matdat_17"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="121.098" atv="5.625" linkedscene="scene_matdat_15" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-110.628" atv="7.132" linkedscene="scene_matdat_17" />
 
 
 	</scene>
@@ -453,10 +425,8 @@
 		         ath="72.900" atv="-38.000"
 		         linkedscene="scene_trencao_07"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="129.863" atv="-0.904" linkedscene="scene_matdat_16"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="0.331" atv="2.289" linkedscene="scene_matdat_18"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="129.863" atv="-0.904" linkedscene="scene_matdat_16" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="0.331" atv="2.289" linkedscene="scene_matdat_18" />
 
 
 	</scene>
@@ -465,17 +435,15 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="-91.484" vlookat="-3.097" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/matdat_18.tiles/preview.jpg" />
 
 		<image prealign="-0.027315|-0.000214|-0.899586">
 			<cube url="panos/matdat_18.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,2816" />
 		</image>
-		<hotspot name="spot1" style="skin_aheadstyle" ath="95.182" atv="7.479" linkedscene="scene_matdat_17"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_aheadstyle" ath="-89.818" atv="2.170" linkedscene="scene_matdat_19"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="95.182" atv="7.479" linkedscene="scene_matdat_17" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-89.818" atv="2.170" linkedscene="scene_matdat_19" />
 
 	</scene>
 
@@ -497,10 +465,8 @@
 		         ath="46.391" atv="-31.073"
 		         linkedscene="scene_trencao_11"
 		         linkedscene_lookat="0,0,120" />
-		<hotspot name="spot1" style="skin_aheadstyle" ath="-175.652" atv="0.533" linkedscene="scene_matdat_18"
-		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-		<hotspot name="spot2" style="skin_viewpointstyle"
-		         url="skin/hotspot_drone.png" ath="-84.443" atv="-33.488" linkedscene="scene_trencao_09" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-175.652" atv="0.533" linkedscene="scene_matdat_18" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-84.443" atv="-33.488" linkedscene="scene_trencao_09" />
 
 
 	</scene>
@@ -718,8 +684,7 @@
 		<image>
 			<cube url="panos/trencao_10.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
 		</image>
-		<hotspot name="spot1" style="skin_viewpointstyle"
-		         url="skin/hotspot_ground.png" ath="42.401" atv="13.954" linkedscene="scene_matdat_19" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="42.401" atv="13.954" linkedscene="scene_matdat_19" />
 
 	</scene>
 

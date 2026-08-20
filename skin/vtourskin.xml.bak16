@@ -344,30 +344,8 @@
 	-->
 	<action name="skin_ahead_label">
 		if(linkedscene,
-
-			<!--
-				Mui ten chevron dat distorted="true" de nam ap mat dat.
-				Docs krpano: "Distorted hotspots can't and shouldn't have
-				children elements" - gan nhan thang vao no thi nhan bi keo vao
-				khong gian 3D, phong to thu nho theo pano.
-
-				Nen tao them mot HOTSPOT NEO trong suot (skin/blank.png) o dung
-				vi tri do, KHONG distorted. Hotspot thuong co zoom="false" mac
-				dinh -> khong doi co khi zoom, va nhan lam con cua no cung vay.
-			-->
-			txtadd(anchor, 'lblanchor_', get(linkedscene));
-			addhotspot(get(anchor));
-			set(hotspot[get(anchor)].url, 'skin/blank.png');
-			copy(hotspot[get(anchor)].ath, ath);
-			copy(hotspot[get(anchor)].atv, atv);
-			set(hotspot[get(anchor)].distorted, false);
-			set(hotspot[get(anchor)].zoom, false);
-			set(hotspot[get(anchor)].enabled, false);
-			set(hotspot[get(anchor)].handcursor, false);
-			set(hotspot[get(anchor)].zorder, '4');
-
 			txtadd(lb, 'lbl_', get(linkedscene));
-			txtadd(lbparent, 'hotspot[', get(anchor), ']');
+			txtadd(lbparent, 'hotspot[', get(name), ']');
 
 			addlayer(get(lb));
 			set(layer[get(lb)].type, 'text');
@@ -375,11 +353,10 @@
 
 			copy(layer[get(lb)].html, scene[get(linkedscene)].title);
 
-			set(layer[get(lb)].align, 'center');
+			set(layer[get(lb)].align, 'top');
 			set(layer[get(lb)].edge, 'bottom');
 			set(layer[get(lb)].x, '0');
-			<!-- do cao cua nhan so voi mui ten: cang am cang len cao -->
-			set(layer[get(lb)].y, '-48');
+			set(layer[get(lb)].y, '-8');
 			set(layer[get(lb)].zorder, '5');
 			set(layer[get(lb)].enabled, false);
 			set(layer[get(lb)].handcursor, false);
@@ -390,7 +367,7 @@
 			set(layer[get(lb)].padding, '3 11');
 			set(layer[get(lb)].css, 'color:#FFFFFF; font-family:Arial; font-size:13px; font-weight:600;');
 
-			trace('[nhan] ', get(lb), ' neo vao ', get(anchor), ' | ath=', get(ath));
+			trace('[nhan] ', get(lb), ' | hotspot=', get(name), ' | parent=', get(layer[get(lb)].parent));
 		);
 	</action>
 

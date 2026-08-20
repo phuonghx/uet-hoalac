@@ -33,6 +33,11 @@
 		thumbs             : false = bỏ dải thumbnail cuộn ngang, thay bằng
 		                     bảng lưới "Tất cả các điểm" (skin/gallery.xml)
 	-->
+	<!--
+		deeplinking : cap nhat URL theo scene va hướng nhìn đang xem
+		              ?startscene=0&amp;startlookat=0,0,140,0,0;
+		              tour.html đã có passQueryParameters nên link mở vào đúng cảnh.
+	-->
 	<skin_settings
 
 		title="false"
@@ -57,6 +62,8 @@
 		design_text_shadow="1"
 
 		thumbs="false"
+
+		deeplinking="true"
 
 		webvr="false"
 		/>

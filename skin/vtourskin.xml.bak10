@@ -325,72 +325,34 @@
 		Neu dat scope="local" va doc caller.linkedscene thi gia tri ra null,
 		action thoat im lang va khong tao duoc nhan nao.
 	-->
-	<!--
-		======================================================================
-		Nhan ten scene cho hotspot chi duong (style skin_aheadstyle)
-		======================================================================
-
-		Goi tu onloaded cua TUNG HOTSPOT:
-
-		    <hotspot ... style="skin_aheadstyle"
-		             onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
-
-		KHONG goi tu <style> bang onloaded.addevent - trong pham vi do get(name)
-		ra rong, moi hotspot tao chung mot layer ten "_label" de len nhau nen ca
-		scene chi hien mot nhan.
-
-		Ten layer dat theo linkedscene: trong mot scene moi mui ten tro toi mot
-		scene khac nhau nen khong the trung.
-	-->
 	<action name="skin_ahead_label">
 		if(linkedscene,
+			txtadd(lbname, get(name), '_label');
+			txtadd(lbparent, 'hotspot[', get(name), ']');
 
-			<!--
-				Mui ten chevron dat distorted="true" de nam ap mat dat.
-				Docs krpano: "Distorted hotspots can't and shouldn't have
-				children elements" - gan nhan thang vao no thi nhan bi keo vao
-				khong gian 3D, phong to thu nho theo pano.
+			addlayer(get(lbname));
+			set(layer[get(lbname)].type, 'text');
+			set(layer[get(lbname)].parent, get(lbparent));
 
-				Nen tao them mot HOTSPOT NEO trong suot (skin/blank.png) o dung
-				vi tri do, KHONG distorted. Hotspot thuong co zoom="false" mac
-				dinh -> khong doi co khi zoom, va nhan lam con cua no cung vay.
-			-->
-			txtadd(anchor, 'lblanchor_', get(linkedscene));
-			addhotspot(get(anchor));
-			set(hotspot[get(anchor)].url, 'skin/blank.png');
-			copy(hotspot[get(anchor)].ath, ath);
-			copy(hotspot[get(anchor)].atv, atv);
-			set(hotspot[get(anchor)].distorted, false);
-			set(hotspot[get(anchor)].zoom, false);
-			set(hotspot[get(anchor)].enabled, false);
-			set(hotspot[get(anchor)].handcursor, false);
-			set(hotspot[get(anchor)].zorder, '4');
+			copy(layer[get(lbname)].html, scene[get(linkedscene)].title);
 
-			txtadd(lb, 'lbl_', get(linkedscene));
-			txtadd(lbparent, 'hotspot[', get(anchor), ']');
+			set(layer[get(lbname)].align, 'top');
+			set(layer[get(lbname)].edge, 'bottom');
+			set(layer[get(lbname)].x, '0');
+			set(layer[get(lbname)].y, '-8');
+			set(layer[get(lbname)].zorder, '5');
+			set(layer[get(lbname)].enabled, false);
+			set(layer[get(lbname)].handcursor, false);
+			set(layer[get(lbname)].bgcolor, '0x101820');
+			set(layer[get(lbname)].bgalpha, '0.88');
+			set(layer[get(lbname)].bgroundedge, '14');
+			set(layer[get(lbname)].bgborder, '1 0xFFFFFF 0.65');
+			set(layer[get(lbname)].padding, '3 11');
+			set(layer[get(lbname)].css, 'color:#FFFFFF; font-family:Arial; font-size:13px; font-weight:600;');
 
-			addlayer(get(lb));
-			set(layer[get(lb)].type, 'text');
-			set(layer[get(lb)].parent, get(lbparent));
-
-			copy(layer[get(lb)].html, scene[get(linkedscene)].title);
-
-			set(layer[get(lb)].align, 'center');
-			set(layer[get(lb)].edge, 'bottom');
-			set(layer[get(lb)].x, '0');
-			<!-- do cao cua nhan so voi mui ten: cang am cang len cao -->
-			set(layer[get(lb)].y, '-48');
-			set(layer[get(lb)].zorder, '5');
-			set(layer[get(lb)].enabled, false);
-			set(layer[get(lb)].handcursor, false);
-			set(layer[get(lb)].bgcolor, '0x101820');
-			set(layer[get(lb)].bgalpha, '0.88');
-			set(layer[get(lb)].bgroundedge, '14');
-			set(layer[get(lb)].bgborder, '1 0xFFFFFF 0.60');
-			set(layer[get(lb)].padding, '3 11');
-			set(layer[get(lb)].css, 'color:#FFFFFF; font-family:Arial; font-size:13px; font-weight:600;');
-
-			trace('[nhan] ', get(lb), ' neo vao ', get(anchor), ' | ath=', get(ath));
+			trace('[nhan] ', get(lbname), ' = "', get(layer[get(lbname)].html), '"');
+		  ,
+			trace('[nhan] bo qua ', get(name), ' - khong co linkedscene');
 		);
 	</action>
 
@@ -429,6 +391,7 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
+	       onloaded.addevent="animation_hotspot(128,128,20,25); skin_ahead_label();"
 	       onover.addevent="tween(scale,0.68,0.2,easeoutquad);"
 	       onout.addevent="tween(scale,0.60,0.2,easeoutquad);"
 	       />
