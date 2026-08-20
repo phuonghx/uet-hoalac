@@ -1,0 +1,547 @@
+<krpano>
+
+	<menu_sm open_start="false" open_start_mob="false" click_hide="true" mobile_click_hide="true" menu_width="260" menu_height="100%" menu_x="0" menu_y="0" menu_bgcolor="0x32677a" menu_bgborder="0,1,0,1 0xffffff 0.44" menu_bgroundedge="0 0 0 0" menu_bgshadow="2 2 3 0x0D0D0D 0.42" menu_bgalpha="0.00" menu_align="lefttop" logo_cont_height="5" logo_width="122" logo_cont_color="0x63ba80" logo_cont_alpha="0.00" logo_y="-12" logo_x="0" logo="" logo_text="" logo_txtshadow="2 2 4 0x000000 0.6" logo_css_text="font-family:Verdana; font-style:italic; color:#FFFFFF; font-size:13px;" logo_padding="0 131 10 20" logo_click="" title_height="46" title_width="95%" title_ox="7" title_oy="0" title_bgcolor="0x3f6a80" title_bgalpha="0.40" title_bgshadow="0 5 18 0x191919 0.54" title_bgborder="1,1,1,1 0xffffff 1.00" title_bgroundedge="10 10 10 10" title_text_1="DANH SÁCH VỊ TRÍ" title_text_2="DANH SÁCH VỊ TRÍ" title_text_3="DANH SÁCH VỊ TRÍ" title_text_4="DANH SÁCH VỊ TRÍ4" title_text_bgshadow="2 2 3 0x000000 0.4" title_css="font-family:Verdana; font-weight:bold; margin-left:20px; margin-right:5px; color:#FFFFFF; font-size:14px;" title_padding="0 45 0 0" title_onover_color="3571594" title_picture="" group_indicator_height="20" icon_style_line="height:25px;vertical-align:middle; margin-right:10px;" icon_style_head="height:30px;vertical-align:middle; margin-right:10px;" bottom_height="40" lang_1="" lang_2="" lang_3="" lang_4="" lang_5="" loadscene_flags="MERGE" download_delay="1" view_marker="" marker_activ_scene="true" list_window="true" interactive="true" search="true" backup="true" />
+
+	<!-- /////////    HEAD   ///////// -->
+
+	<style name="header_container" type="container" keep="true" visible="true" enabled="true" alpha="1" maskchildren="true" bg="true" itemm="true" next_m="" b_id="" txt_m="" onclick_temp="" edit_group="true" edit_all_group="true" childorder="" bgcolor_t="" bgalpha_t="" bgcapture="true" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" onloaded="txtreplace(b_id, name,'line_',); calc(txt_m, 'txt_' + b_id);bgalpha_t =  bgalpha;  bgcolor_t = bgcolor; " onclick="click_butt();" onover="copy(bgcolor_t, bgcolor); copy(bgcolor, onover_color); copy(bgalpha_t, bgalpha); copy(bgalpha, onover_bgalpha);" onout="copy(bgcolor, bgcolor_t); copy(bgalpha, bgalpha_t);" ondown="ondown_butt();" width="87%" height="48" ox="17" onover_color="0x1b7991" onover_bgalpha="0.8" flowspacing="5 0 0 5" bgcolor="0x32677a" bgalpha="0.5" bgborder="1,0,0,1 0xffffff 0.97" bgshadow="3 4 3 0x0A0A0A 0.44" bgroundedge="10 10 10 10" dx="-8" oy="0" />
+
+	<style name="txt_head" type="text" keep="true" enabled="true" width="100%" height="100%" align="left" zorder="51" edit_group="true" itemm="true" txt_1="" txt_2="" icon="" childorder="" bgcapture="false" capture="false" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" bg="false" bgcolor="0x777777" bgalpha="0.7" bgroundedge="2" bgborder="0 0xFFFFFF 0" bgshadow="4 4 3 0x2D3E50 0" wordwrap="true" interactive="false" editenterkey="stop" textalign="left" ellipsis="false" editable="false" text="" css="font-family:Verdana; font-style:italic; color:#ffffff; font-size:16px;" padding="0 11 0 15" txtshadow="2 2 4 0x000000 0.6" selectable="false" interactivecontent="false" mergedalpha="true" />
+
+	<style name="ic_next" type="image" keep="true" url="%FIRSTXML%/menu/plugins/icon/n.png" enabled="false" align="right" alpha="1" zorder="60" itemm="true" height="12" width="prop" x="10" onclick.addevent="" />
+
+	<!-- /////////    LINE   ///////// -->
+
+	<style name="row_container" type="container" keep="true" enabled="true" visible="true" alpha="1" maskchildren="true" bg="true" next_m="" itemm="true" b_id="" txt_m="" onclick_temp="" edit_group="true" edit_all_group="true" bgcolor_t="" bgalpha_t="" childorder="" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" bgcapture="true" onover="copy(bgcolor_t, bgcolor); copy(bgcolor, onover_color); copy(bgalpha_t, bgalpha); copy(bgalpha, onover_bgalpha);" onout="copy(bgcolor, bgcolor_t); copy(bgalpha, bgalpha_t);" onclick.addevent="click_butt();" ondown="ondown_butt();" onloaded.addevent="txtreplace(b_id, name,'line_',); calc(txt_m, 'txt_' + b_id); bgalpha_t =  bgalpha;  bgcolor_t = bgcolor; " flowspacing="5 0 5 0" ox="17" width="87%" height="38" bgborder="1,0,0,1 0xffffff 1.00" bgroundedge="10 10 10 10" bgshadow="2 3 3 0x052129 0.64" bgcolor="0x16a318" bgalpha="0.5" onover_color="0x16a318" onover_bgalpha="0.81" oy="0" />
+
+	<style name="txt_line" type="text" keep="true" enabled="true" width="100%" height="100%" align="left" zorder="51" edit_group="true" itemm="true" txt_1="" txt_2="" icon="" interactive="false" editenterkey="stop" ellipsis="false" editable="false" text="" bgborder="0 0xFFFFFF 0.0" bgcapture="false" capture="false" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" bg="false" bgcolor="0x000000" bgalpha="0.7" bgroundedge="1" wordwrap="true" textalign="left" css="font-family:Verdana; color:#FFFFFF; font-size:15px;" padding="3 6 4 10" txtshadow="2 2 4 0x000000 0.6" selectable="false" interactivecontent="false" mergedalpha="true" onloaded="layer[*parent].height = pixelheight;" />
+
+	<!-- /////////    THUMBNAIL   ///////// -->
+
+	<style name="container_thumbnails" type="container" keep="true" maskchildren="true" itemm="true" b_id="" txt_m="" next_m="" edit_group="true" bgcolor_t="" bgalpha_t="" childorder="" onclick_temp="" edit_all_group="true" bg="true" bgcapture="true" bgalpha="0.1" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" onclick.addevent="click_butt();" ondown="ondown_butt();" onloaded.addevent="txtreplace(b_id, name, 'line_', ); calc(txt_m, 'txt_' + b_id); bgalpha_t =  bgalpha;  bgcolor_t = bgcolor; " onover="callwith(layer[*txt_m], onover);" onout="callwith(layer[*txt_m], onout);" flowspacing="13 0 5 0" width="92%" height="110" ox="11" bgborder="0,0,0,0 0xffffff 0.97" bgshadow="6 8 13 0x000000 0.51" bgroundedge="10 1 10 0" oy="0" dx="0" />
+
+	<style name="txt_menu_thumbnail" type="text" keep="true" align="bottom" enabled="true" width="100%" height="35" zorder="51" interactive="false" editenterkey="stop" ellipsis="false" editable="false" bgcapture="true" capture="false" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" edit_group="true" itemm="true" txt_1="" txt_2="" icon="" childorder="" bg="true" bgalpha_t="" bgcolor_t="" bgborder="0 0xFFFFFF 0.8" bgroundedge="0" bgshadow="0 0 0 0x2D3E50 0.0" wordwrap="true" textalign="center" onover="copy(bgalpha, onover_bgalpha); copy(bgcolor, onover_color);" onout="copy(bgalpha, bgalpha_t); copy(bgcolor, bgcolor_t);  " onloaded.addevent="copy(bgalpha_t, bgalpha); copy(bgcolor_t, bgcolor);" onover_color="0x710b00" onover_bgalpha="0.94" css="font-family:Verdana; font-style:italic; color:#fafafa; font-size:14px;" padding="0 1 0 0" bgcolor="0x900202" bgalpha="0.61" txtshadow="2 2 3 0x1D1D1D 0.6" selectable="false" interactivecontent="false" mergedalpha="true" />
+
+	<style name="menu_thumbnail" type="image" keep="true" alpha="1" align="center" enabled="false" url="" edit_group="true" itemm="true" childorder="" width="100%" height="prop" />
+
+	<style name="indik_prosmotr" type="text" keep="true" align="lefttop" enabled="false" alpha="0" x="7" y="0" handcursor="false" menu="true" itemm="true" bgalpha="0" bgroundedge="0" bgborder="0 0x000000 0" bgbordercolor="0x2D3E50" bgborderwidth="0" wordwrap="true" zorder="5" txtshadow="1 1 3 0x000000 0.9" width="18" height="29" bg="false" css="font-family:Arial; font-size:20px; color:#FFFFFF;" padding="1" textalign="center" bgcolor="0x000000" bgcapture="false" interactive="false" editenterkey="stop" ellipsis="false" editable="false" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" visible="true" html="✔" text="✔" selectable="false" interactivecontent="false" mergedalpha="true" />
+
+	<!-- /////////    PICTURE   ///////// -->
+
+	<style name="container_picture" style="row_container" maskchildren="true" width="100%" next_m="" edit_group="true" pict="" b_id="" txt_m="" onclick_temp="" itemm="true" edit_all_group="true" childorder="" bg="true" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" bgcapture="true" bgcolor="0x000000" bgalpha="0" onloaded.addevent="txtreplace(b_id, name,'line_',); calc(pict, 'miniat_' + b_id); bgalpha_t =  bgalpha;  bgcolor_t = bgcolor;" onclick.addevent="click_butt();" ondown="ondown_butt();" onover="callwith(layer[get(pict)],onover);" onout="callwith(layer[get(pict)],onout);" height="37" ox="0" flowspacing="5 0 5 0" bgborder="0,0,0,0 0xFFFFFF 1" bgshadow="2 2 3  0x1D1D1D 0.6" bgroundedge="2 2 2 2" onover_color="0xbf3a3a" onover_bgalpha="0.79" />
+
+	<style name="txt_picture" type="text" keep="true" enabled="true" width="100%" height="100%" align="left" zorder="51" itemm="true" edit_group="true" txt_1="" txt_2="" icon="" bgcapture="false" capture="false" interactive="false" editenterkey="stop" ellipsis="false" textalign="center" editable="false" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" bginvert="0" bgsepia="0" bgblur="0" bgshadow="4 4 3 0x2D3E50 0" bg="false" bgcolor="0x777777" bgalpha="0.7" bgroundedge="2" bgborder="0 0xFFFFFF 0.0" txtshadow="1 1 0 0x000000 0.5" wordwrap="true" css="font-family:Verdana; font-style:italic; font-size:14px; color:#FFFFFF;" padding="0 5 0 20" selectable="false" interactivecontent="false" mergedalpha="true" dx="0" />
+
+	<style name="menu_picture" type="image" keep="true" align="center" enabled="false" width="100%" height="100%" zorder="10" childorder="" itemm="true" edit_group="true" alpha="1" url="%FIRSTXML%/menu/image/Picture/butt2.jpg" crop="0|80|273|80" bgroundedge="2 2 2 2" onover="set(crop,0|0|273|80);" onout="set(crop,0|80|273|80);" />
+
+
+	<menu_fr bgblur="49.86" bginvert="0" bgsepia="0" bgbrightness="1" bgcontrast="1" bgsaturate="2.94" bghue="0" />
+	<cont_logo_fr bgblur="0" bginvert="0" bgsepia="0" bgbrightness="1" bgcontrast="1" bgsaturate="1" bghue="0" undefined="undefined" />
+	<button_head_fr bgblur="0" bginvert="0" bgsepia="0" bgbrightness="1" bgcontrast="1" bgsaturate="4.1" bghue="0" />
+
+
+
+	<!-- /////////    menu buttons   ///////// -->
+
+	<layer name="gr_1" parent="level_gr_1" style="cont_gr" />
+
+	<layer name="line_1_1" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_overhead_view);" childorder="1" />
+
+	<layer name="miniat_1_1" parent="line_1_1" style="menu_thumbnail" url="%FIRSTXML%/panos/overhead_view.tiles/thumb.jpg" />
+
+	<layer name="line_1_2" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_entrance_view);" childorder="2" />
+
+	<layer name="miniat_1_2" parent="line_1_2" style="menu_thumbnail" url="%FIRSTXML%/panos/entrance_view.tiles/thumb.jpg" />
+
+	<layer name="line_1_3" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_middle_view);" childorder="3" />
+
+	<layer name="miniat_1_3" parent="line_1_3" style="menu_thumbnail" url="%FIRSTXML%/panos/middle_view.tiles/thumb.jpg" />
+
+	<layer name="line_1_4" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_stage_view);" childorder="4" />
+
+	<layer name="miniat_1_4" parent="line_1_4" style="menu_thumbnail" url="%FIRSTXML%/panos/stage_view.tiles/thumb.jpg" />
+
+	<layer name="line_1_5" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_1);" childorder="5" />
+
+	<layer name="miniat_1_5" parent="line_1_5" style="menu_thumbnail" url="%FIRSTXML%/panos/left_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_6" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_2);" childorder="6" />
+
+	<layer name="miniat_1_6" parent="line_1_6" style="menu_thumbnail" url="%FIRSTXML%/panos/left_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_7" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_3);" childorder="7" />
+
+	<layer name="miniat_1_7" parent="line_1_7" style="menu_thumbnail" url="%FIRSTXML%/panos/left_3.tiles/thumb.jpg" />
+
+	<layer name="line_1_8" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_4);" childorder="8" />
+
+	<layer name="miniat_1_8" parent="line_1_8" style="menu_thumbnail" url="%FIRSTXML%/panos/left_4.tiles/thumb.jpg" />
+
+	<layer name="line_1_9" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_5);" childorder="9" />
+
+	<layer name="miniat_1_9" parent="line_1_9" style="menu_thumbnail" url="%FIRSTXML%/panos/left_5.tiles/thumb.jpg" />
+
+	<layer name="line_1_10" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_6);" childorder="10" />
+
+	<layer name="miniat_1_10" parent="line_1_10" style="menu_thumbnail" url="%FIRSTXML%/panos/left_6.tiles/thumb.jpg" />
+
+	<layer name="line_1_11" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_7);" childorder="11" />
+
+	<layer name="miniat_1_11" parent="line_1_11" style="menu_thumbnail" url="%FIRSTXML%/panos/left_7.tiles/thumb.jpg" />
+
+	<layer name="line_1_13" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_8);" childorder="13" />
+
+	<layer name="miniat_1_13" parent="line_1_13" style="menu_thumbnail" url="%FIRSTXML%/panos/left_8.tiles/thumb.jpg" />
+
+	<layer name="line_1_12" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_9);" childorder="13" />
+
+	<layer name="miniat_1_12" parent="line_1_12" style="menu_thumbnail" url="%FIRSTXML%/panos/left_9.tiles/thumb.jpg" />
+
+	<layer name="line_1_14" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_10);" childorder="14" />
+
+	<layer name="miniat_1_14" parent="line_1_14" style="menu_thumbnail" url="%FIRSTXML%/panos/left_10.tiles/thumb.jpg" />
+
+	<layer name="line_1_15" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_11);" childorder="15" />
+
+	<layer name="miniat_1_15" parent="line_1_15" style="menu_thumbnail" url="%FIRSTXML%/panos/left_11.tiles/thumb.jpg" />
+
+	<layer name="line_1_16" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_12);" childorder="16" />
+
+	<layer name="miniat_1_16" parent="line_1_16" style="menu_thumbnail" url="%FIRSTXML%/panos/left_12.tiles/thumb.jpg" />
+
+	<layer name="line_1_17" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_13);" childorder="17" />
+
+	<layer name="miniat_1_17" parent="line_1_17" style="menu_thumbnail" url="%FIRSTXML%/panos/left_13.tiles/thumb.jpg" />
+
+	<layer name="line_1_18" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_14);" childorder="18" />
+
+	<layer name="miniat_1_18" parent="line_1_18" style="menu_thumbnail" url="%FIRSTXML%/panos/left_14.tiles/thumb.jpg" />
+
+	<layer name="line_1_19" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_15);" childorder="19" />
+
+	<layer name="miniat_1_19" parent="line_1_19" style="menu_thumbnail" url="%FIRSTXML%/panos/left_15.tiles/thumb.jpg" />
+
+	<layer name="line_1_20" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_0);" childorder="20" />
+
+	<layer name="miniat_1_20" parent="line_1_20" style="menu_thumbnail" url="%FIRSTXML%/panos/right_0.tiles/thumb.jpg" />
+
+	<layer name="line_1_21" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_1);" childorder="21" />
+
+	<layer name="miniat_1_21" parent="line_1_21" style="menu_thumbnail" url="%FIRSTXML%/panos/right_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_22" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_2);" childorder="22" />
+
+	<layer name="miniat_1_22" parent="line_1_22" style="menu_thumbnail" url="%FIRSTXML%/panos/right_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_23" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_3);" childorder="23" />
+
+	<layer name="miniat_1_23" parent="line_1_23" style="menu_thumbnail" url="%FIRSTXML%/panos/right_3.tiles/thumb.jpg" />
+
+	<layer name="line_1_24" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_4);" childorder="24" />
+
+	<layer name="miniat_1_24" parent="line_1_24" style="menu_thumbnail" url="%FIRSTXML%/panos/right_4.tiles/thumb.jpg" />
+
+	<layer name="line_1_25" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_5);" childorder="25" />
+
+	<layer name="miniat_1_25" parent="line_1_25" style="menu_thumbnail" url="%FIRSTXML%/panos/right_5.tiles/thumb.jpg" />
+
+	<layer name="line_1_26" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_6);" childorder="26" />
+
+	<layer name="miniat_1_26" parent="line_1_26" style="menu_thumbnail" url="%FIRSTXML%/panos/right_6.tiles/thumb.jpg" />
+
+	<layer name="line_1_27" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_7);" childorder="27" />
+
+	<layer name="miniat_1_27" parent="line_1_27" style="menu_thumbnail" url="%FIRSTXML%/panos/right_7.tiles/thumb.jpg" />
+
+	<layer name="line_1_28" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_8);" childorder="28" />
+
+	<layer name="miniat_1_28" parent="line_1_28" style="menu_thumbnail" url="%FIRSTXML%/panos/right_8.tiles/thumb.jpg" />
+
+	<layer name="line_1_29" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_9);" childorder="29" />
+
+	<layer name="miniat_1_29" parent="line_1_29" style="menu_thumbnail" url="%FIRSTXML%/panos/right_9.tiles/thumb.jpg" />
+
+	<layer name="line_1_30" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_10);" childorder="30" />
+
+	<layer name="miniat_1_30" parent="line_1_30" style="menu_thumbnail" url="%FIRSTXML%/panos/right_10.tiles/thumb.jpg" />
+
+	<layer name="line_1_31" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_11);" childorder="31" />
+
+	<layer name="miniat_1_31" parent="line_1_31" style="menu_thumbnail" url="%FIRSTXML%/panos/right_11.tiles/thumb.jpg" />
+
+	<layer name="line_1_32" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_12);" childorder="32" />
+
+	<layer name="miniat_1_32" parent="line_1_32" style="menu_thumbnail" url="%FIRSTXML%/panos/right_12.tiles/thumb.jpg" />
+
+	<layer name="line_1_33" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_13);" childorder="33" />
+
+	<layer name="miniat_1_33" parent="line_1_33" style="menu_thumbnail" url="%FIRSTXML%/panos/right_13.tiles/thumb.jpg" />
+
+	<layer name="line_1_34" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_14);" childorder="34" />
+
+	<layer name="miniat_1_34" parent="line_1_34" style="menu_thumbnail" url="%FIRSTXML%/panos/right_14.tiles/thumb.jpg" />
+
+	<layer name="miniat_1_35" parent="line_1_35" style="menu_thumbnail" url="%FIRSTXML%/panos/left_3_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_35" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_3_2);" childorder="35" />
+
+	<layer name="line_1_36" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_4_2);" childorder="36" />
+
+	<layer name="miniat_1_36" parent="line_1_36" style="menu_thumbnail" url="%FIRSTXML%/panos/left_4_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_37" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_5_2);" childorder="37" />
+
+	<layer name="miniat_1_37" parent="line_1_37" style="menu_thumbnail" url="%FIRSTXML%/panos/left_5_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_38" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_6_2);" childorder="38" />
+
+	<layer name="miniat_1_38" parent="line_1_38" style="menu_thumbnail" url="%FIRSTXML%/panos/left_6_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_39" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_7_2);" childorder="39" />
+
+	<layer name="miniat_1_39" parent="line_1_39" style="menu_thumbnail" url="%FIRSTXML%/panos/left_7_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_40" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_8_2);" childorder="40" />
+
+	<layer name="miniat_1_40" parent="line_1_40" style="menu_thumbnail" url="%FIRSTXML%/panos/left_8_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_41" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_9_2);" childorder="41" />
+
+	<layer name="miniat_1_41" parent="line_1_41" style="menu_thumbnail" url="%FIRSTXML%/panos/left_9_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_42" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_10_2);" childorder="42" />
+
+	<layer name="miniat_1_42" parent="line_1_42" style="menu_thumbnail" url="%FIRSTXML%/panos/left_10_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_43" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_12_2);" childorder="43" />
+
+	<layer name="miniat_1_43" parent="line_1_43" style="menu_thumbnail" url="%FIRSTXML%/panos/left_12_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_44" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_11_2);" childorder="44" />
+
+	<layer name="miniat_1_44" parent="line_1_44" style="menu_thumbnail" url="%FIRSTXML%/panos/left_11_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_45" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_13_2);" childorder="45" />
+
+	<layer name="miniat_1_45" parent="line_1_45" style="menu_thumbnail" url="%FIRSTXML%/panos/left_13_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_46" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_14_2);" childorder="46" />
+
+	<layer name="miniat_1_46" parent="line_1_46" style="menu_thumbnail" url="%FIRSTXML%/panos/left_14_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_47" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_15_2);" childorder="47" />
+
+	<layer name="miniat_1_47" parent="line_1_47" style="menu_thumbnail" url="%FIRSTXML%/panos/left_15_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_48" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_3_2);" childorder="48" />
+
+	<layer name="miniat_1_48" parent="line_1_48" style="menu_thumbnail" url="%FIRSTXML%/panos/right_3_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_49" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_4_2);" childorder="49" />
+
+	<layer name="miniat_1_49" parent="line_1_49" style="menu_thumbnail" url="%FIRSTXML%/panos/right_4_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_50" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_2_2);" childorder="50" />
+
+	<layer name="miniat_1_50" parent="line_1_50" style="menu_thumbnail" url="%FIRSTXML%/panos/right_2_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_51" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_1_1);" childorder="51" />
+
+	<layer name="miniat_1_51" parent="line_1_51" style="menu_thumbnail" url="%FIRSTXML%/panos/left_1_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_52" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_left_2_1);" childorder="52" />
+
+	<layer name="miniat_1_52" parent="line_1_52" style="menu_thumbnail" url="%FIRSTXML%/panos/left_2_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_53" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_5_1);" childorder="53" />
+
+	<layer name="miniat_1_53" parent="line_1_53" style="menu_thumbnail" url="%FIRSTXML%/panos/right_5_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_54" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_6_1);" childorder="54" />
+
+	<layer name="miniat_1_54" parent="line_1_54" style="menu_thumbnail" url="%FIRSTXML%/panos/right_6_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_55" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_7_1);" childorder="55" />
+
+	<layer name="miniat_1_55" parent="line_1_55" style="menu_thumbnail" url="%FIRSTXML%/panos/right_7_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_56" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_8_1);" childorder="56" />
+
+	<layer name="miniat_1_56" parent="line_1_56" style="menu_thumbnail" url="%FIRSTXML%/panos/right_8_1.tiles/thumb.jpg" />
+
+	<layer name="line_1_57" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_9_2);" childorder="57" />
+
+	<layer name="miniat_1_57" parent="line_1_57" style="menu_thumbnail" url="%FIRSTXML%/panos/right_9_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_58" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_10_2);" childorder="58" />
+
+	<layer name="miniat_1_58" parent="line_1_58" style="menu_thumbnail" url="%FIRSTXML%/panos/right_10_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_59" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_11_2);" childorder="59" />
+
+	<layer name="miniat_1_59" parent="line_1_59" style="menu_thumbnail" url="%FIRSTXML%/panos/right_11_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_60" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_12_2);" childorder="60" />
+
+	<layer name="miniat_1_60" parent="line_1_60" style="menu_thumbnail" url="%FIRSTXML%/panos/right_12_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_61" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_13_2);" childorder="61" />
+
+	<layer name="miniat_1_61" parent="line_1_61" style="menu_thumbnail" url="%FIRSTXML%/panos/right_13_2.tiles/thumb.jpg" />
+
+	<layer name="line_1_62" parent="gr_1" style="container_thumbnails" onclick="load_m(scene_right_14_2);" childorder="62" />
+
+	<layer name="miniat_1_62" parent="line_1_62" style="menu_thumbnail" url="%FIRSTXML%/panos/right_14_2.tiles/thumb.jpg" />
+
+	<layer name="marker_1_1" parent="line_1_1" style="indik_prosmotr" />
+
+	<layer name="marker_1_2" parent="line_1_2" style="indik_prosmotr" />
+
+	<layer name="marker_1_3" parent="line_1_3" style="indik_prosmotr" />
+
+	<layer name="marker_1_4" parent="line_1_4" style="indik_prosmotr" />
+
+	<layer name="marker_1_5" parent="line_1_5" style="indik_prosmotr" />
+
+	<layer name="marker_1_6" parent="line_1_6" style="indik_prosmotr" />
+
+	<layer name="marker_1_7" parent="line_1_7" style="indik_prosmotr" />
+
+	<layer name="marker_1_8" parent="line_1_8" style="indik_prosmotr" />
+
+	<layer name="marker_1_9" parent="line_1_9" style="indik_prosmotr" />
+
+	<layer name="marker_1_10" parent="line_1_10" style="indik_prosmotr" />
+
+	<layer name="marker_1_11" parent="line_1_11" style="indik_prosmotr" />
+
+	<layer name="marker_1_13" parent="line_1_13" style="indik_prosmotr" />
+
+	<layer name="marker_1_12" parent="line_1_12" style="indik_prosmotr" />
+
+	<layer name="marker_1_14" parent="line_1_14" style="indik_prosmotr" />
+
+	<layer name="marker_1_15" parent="line_1_15" style="indik_prosmotr" />
+
+	<layer name="marker_1_16" parent="line_1_16" style="indik_prosmotr" />
+
+	<layer name="marker_1_17" parent="line_1_17" style="indik_prosmotr" />
+
+	<layer name="marker_1_18" parent="line_1_18" style="indik_prosmotr" />
+
+	<layer name="marker_1_19" parent="line_1_19" style="indik_prosmotr" />
+
+	<layer name="marker_1_20" parent="line_1_20" style="indik_prosmotr" />
+
+	<layer name="marker_1_21" parent="line_1_21" style="indik_prosmotr" />
+
+	<layer name="marker_1_22" parent="line_1_22" style="indik_prosmotr" />
+
+	<layer name="marker_1_23" parent="line_1_23" style="indik_prosmotr" />
+
+	<layer name="marker_1_24" parent="line_1_24" style="indik_prosmotr" />
+
+	<layer name="marker_1_25" parent="line_1_25" style="indik_prosmotr" />
+
+	<layer name="marker_1_26" parent="line_1_26" style="indik_prosmotr" />
+
+	<layer name="marker_1_27" parent="line_1_27" style="indik_prosmotr" />
+
+	<layer name="marker_1_28" parent="line_1_28" style="indik_prosmotr" />
+
+	<layer name="marker_1_29" parent="line_1_29" style="indik_prosmotr" />
+
+	<layer name="marker_1_30" parent="line_1_30" style="indik_prosmotr" />
+
+	<layer name="marker_1_31" parent="line_1_31" style="indik_prosmotr" />
+
+	<layer name="marker_1_32" parent="line_1_32" style="indik_prosmotr" />
+
+	<layer name="marker_1_33" parent="line_1_33" style="indik_prosmotr" />
+
+	<layer name="marker_1_34" parent="line_1_34" style="indik_prosmotr" />
+
+	<layer name="marker_1_35" parent="line_1_35" style="indik_prosmotr" />
+
+	<layer name="marker_1_36" parent="line_1_36" style="indik_prosmotr" />
+
+	<layer name="marker_1_37" parent="line_1_37" style="indik_prosmotr" />
+
+	<layer name="marker_1_38" parent="line_1_38" style="indik_prosmotr" />
+
+	<layer name="marker_1_39" parent="line_1_39" style="indik_prosmotr" />
+
+	<layer name="marker_1_40" parent="line_1_40" style="indik_prosmotr" />
+
+	<layer name="marker_1_41" parent="line_1_41" style="indik_prosmotr" />
+
+	<layer name="marker_1_42" parent="line_1_42" style="indik_prosmotr" />
+
+	<layer name="marker_1_43" parent="line_1_43" style="indik_prosmotr" />
+
+	<layer name="marker_1_44" parent="line_1_44" style="indik_prosmotr" />
+
+	<layer name="marker_1_45" parent="line_1_45" style="indik_prosmotr" />
+
+	<layer name="marker_1_46" parent="line_1_46" style="indik_prosmotr" />
+
+	<layer name="marker_1_47" parent="line_1_47" style="indik_prosmotr" />
+
+	<layer name="marker_1_48" parent="line_1_48" style="indik_prosmotr" />
+
+	<layer name="marker_1_49" parent="line_1_49" style="indik_prosmotr" />
+
+	<layer name="marker_1_50" parent="line_1_50" style="indik_prosmotr" />
+
+	<layer name="marker_1_51" parent="line_1_51" style="indik_prosmotr" />
+
+	<layer name="marker_1_52" parent="line_1_52" style="indik_prosmotr" />
+
+	<layer name="marker_1_53" parent="line_1_53" style="indik_prosmotr" />
+
+	<layer name="marker_1_54" parent="line_1_54" style="indik_prosmotr" />
+
+	<layer name="marker_1_55" parent="line_1_55" style="indik_prosmotr" />
+
+	<layer name="marker_1_56" parent="line_1_56" style="indik_prosmotr" />
+
+	<layer name="marker_1_57" parent="line_1_57" style="indik_prosmotr" />
+
+	<layer name="marker_1_58" parent="line_1_58" style="indik_prosmotr" />
+
+	<layer name="marker_1_59" parent="line_1_59" style="indik_prosmotr" />
+
+	<layer name="marker_1_60" parent="line_1_60" style="indik_prosmotr" />
+
+	<layer name="marker_1_61" parent="line_1_61" style="indik_prosmotr" />
+
+	<layer name="marker_1_62" parent="line_1_62" style="indik_prosmotr" />
+
+	<layer name="txt_1_1" parent="line_1_1" style="txt_menu_thumbnail" txt_1="Vị trí trên cao" text="Vị trí trên cao" />
+
+	<layer name="txt_1_2" parent="line_1_2" style="txt_menu_thumbnail" txt_1="Cổng hội chợ" text="Cổng hội chợ" />
+
+	<layer name="txt_1_3" parent="line_1_3" style="txt_menu_thumbnail" txt_1="Vị trí trung tâm triển lãm" text="Vị trí trung tâm triển lãm" />
+
+	<layer name="txt_1_4" parent="line_1_4" style="txt_menu_thumbnail" txt_1="Sân khấu" text="Sân khấu" />
+
+	<layer name="txt_1_5" parent="line_1_5" style="txt_menu_thumbnail" txt_1="Công ty TNHH Chế biến thực phẩm Phú Đức" text="Công ty TNHH Chế biến thực phẩm Phú Đức" />
+
+	<layer name="txt_1_6" parent="line_1_6" style="txt_menu_thumbnail" txt_1="Cao dược liệu Hòa Anh" text="Cao dược liệu Hòa Anh" />
+
+	<layer name="txt_1_7" parent="line_1_7" style="txt_menu_thumbnail" txt_1="HTX Nông nghiệp sạch Hatisa" text="HTX Nông nghiệp sạch Hatisa" />
+
+	<layer name="txt_1_8" parent="line_1_8" style="txt_menu_thumbnail" txt_1="HTX Mật ong Cường Nga Hương Sơn" text="HTX Mật ong Cường Nga Hương Sơn" />
+
+	<layer name="txt_1_9" parent="line_1_9" style="txt_menu_thumbnail" txt_1="Công ty cổ phần nông nghiệp Hương Sơn" text="Công ty cổ phần nông nghiệp Hương Sơn" />
+
+	<layer name="txt_1_10" parent="line_1_10" style="txt_menu_thumbnail" txt_1="HTX sản xuất thương mại và dịch vụ Nguyên Lâm" text="HTX sản xuất thương mại và dịch vụ Nguyên Lâm" />
+
+	<layer name="txt_1_11" parent="line_1_11" style="txt_menu_thumbnail" txt_1="Ruốc bông Thương Hòa" text="Ruốc bông Thương Hòa" />
+
+	<layer name="txt_1_13" parent="line_1_13" style="txt_menu_thumbnail" txt_1="Cơ sở nuôi trồng và chế biến đông trùng hạ thảo Hưng Hà Vân" text="Cơ sở nuôi trồng và chế biến đông trùng hạ thảo Hưng Hà Vân" />
+
+	<layer name="txt_1_12" parent="line_1_12" style="txt_menu_thumbnail" txt_1="Công ty TNHH thương mại dịch vụ Linh Trang" text="Công ty TNHH thương mại dịch vụ Linh Trang" />
+
+	<layer name="txt_1_14" parent="line_1_14" style="txt_menu_thumbnail" txt_1="Công ty TNHH SXTM An Phong" text="Công ty TNHH SXTM An Phong" />
+
+	<layer name="txt_1_15" parent="line_1_15" style="txt_menu_thumbnail" txt_1="HTX hương trầm Hiền Linh" text="HTX hương trầm Hiền Linh" />
+
+	<layer name="txt_1_16" parent="line_1_16" style="txt_menu_thumbnail" txt_1="Hộ sản xuất kinh doanh Nguyễn Thu Hiền" text="Hộ sản xuất kinh doanh Nguyễn Thu Hiền" />
+
+	<layer name="txt_1_17" parent="line_1_17" style="txt_menu_thumbnail" txt_1="HTX thu mua và chế biến thủy hải sản Chiến Thắng" text="HTX thu mua và chế biến thủy hải sản Chiến Thắng" />
+
+	<layer name="txt_1_18" parent="line_1_18" style="txt_menu_thumbnail" txt_1="HTX Phú Khương" text="HTX Phú Khương" />
+
+	<layer name="txt_1_19" parent="line_1_19" style="txt_menu_thumbnail" txt_1="Cơ sở sản xuất kẹo cu đơ Thanh Hạnh" text="Cơ sở sản xuất kẹo cu đơ Thanh Hạnh" />
+
+	<layer name="txt_1_20" parent="line_1_20" style="txt_menu_thumbnail" txt_1="Công ty cổ phần An Hồng " text="Công ty cổ phần An Hồng " />
+
+	<layer name="txt_1_21" parent="line_1_21" style="txt_menu_thumbnail" txt_1="Hợp tác xã Thiên Phú" text="Hợp tác xã Thiên Phú" />
+
+	<layer name="txt_1_22" parent="line_1_22" style="txt_menu_thumbnail" txt_1="Công ty TNHH công nghệ An Phát" text="Công ty TNHH công nghệ An Phát" />
+
+	<layer name="txt_1_23" parent="line_1_23" style="txt_menu_thumbnail" txt_1="Công ty TNHH dược liệu Ngọc Bích" text="Công ty TNHH dược liệu Ngọc Bích" />
+
+	<layer name="txt_1_24" parent="line_1_24" style="txt_menu_thumbnail" txt_1="Hộ kinh doanh Nguyễn Văn Phong" text="Hộ kinh doanh Nguyễn Văn Phong" />
+
+	<layer name="txt_1_25" parent="line_1_25" style="txt_menu_thumbnail" txt_1="Hộ kinh doanh Võ Thị Thu Hằng" text="Hộ kinh doanh Võ Thị Thu Hằng" />
+
+	<layer name="txt_1_26" parent="line_1_26" style="txt_menu_thumbnail" txt_1="Hộ sản xuất kinh doanh Nguyễn Văn Mão" text="Hộ sản xuất kinh doanh Nguyễn Văn Mão" />
+
+	<layer name="txt_1_27" parent="line_1_27" style="txt_menu_thumbnail" txt_1="Công ty cổ phần nước khoáng và du lịch Sơn Kim" text="Công ty cổ phần nước khoáng và du lịch Sơn Kim" />
+
+	<layer name="txt_1_28" parent="line_1_28" style="txt_menu_thumbnail" txt_1="Hộ kinh doanh Nguyễn Đình Giáp" text="Hộ kinh doanh Nguyễn Đình Giáp" />
+
+	<layer name="txt_1_29" parent="line_1_29" style="txt_menu_thumbnail" txt_1="Cơ sở chế biến thực phẩm Bình Lê" text="Cơ sở chế biến thực phẩm Bình Lê" />
+
+	<layer name="txt_1_30" parent="line_1_30" style="txt_menu_thumbnail" txt_1="Công ty cổ phần dược Hà Tĩnh - Hadiphar" text="Công ty cổ phần dược Hà Tĩnh - Hadiphar" />
+
+	<layer name="txt_1_31" parent="line_1_31" style="txt_menu_thumbnail" txt_1="Hộ sản xuất kinh doanh Trần Bá Quang" text="Hộ sản xuất kinh doanh Trần Bá Quang" />
+
+	<layer name="txt_1_32" parent="line_1_32" style="txt_menu_thumbnail" txt_1="Xí nghiệp chè Tây Sơn" text="Xí nghiệp chè Tây Sơn" />
+
+	<layer name="txt_1_33" parent="line_1_33" style="txt_menu_thumbnail" txt_1="Công ty cổ phần đầu tư và xây dựng Hoàng Khôi" text="Công ty cổ phần đầu tư và xây dựng Hoàng Khôi" />
+
+	<layer name="txt_1_34" parent="line_1_34" style="txt_menu_thumbnail" txt_1="Hộ sản xuất kinh doanh Lê Hoài Thu" text="Hộ sản xuất kinh doanh Lê Hoài Thu" />
+
+	<layer name="txt_1_35" parent="line_1_35" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Hữu Tâm, Công ty TNHH MTV KC Hà Tĩnh" text="HKD Nguyễn Hữu Tâm, Công ty TNHH MTV KC Hà Tĩnh" />
+
+	<layer name="txt_1_36" parent="line_1_36" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Hoài Phương, HKD CSCB kinh doanh hải sản Hòa Cung" text="HKD Nguyễn Hoài Phương, HKD CSCB KD hải sản Hòa Cung" />
+
+	<layer name="txt_1_37" parent="line_1_37" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Thị Thùy Dung, HTX chế biến thủy hải sản Phú Sáng" text="HKD Nguyễn Thị Thùy Dung, HTX CB thủy hải sản Phú Sáng" />
+
+	<layer name="txt_1_38" parent="line_1_38" style="txt_menu_thumbnail" txt_1="HTX Nuôi ong xã Ân Phú, HTX Hải Yến " text="HTX Nuôi ong xã Ân Phú, HTX Hải Yến " />
+
+	<layer name="txt_1_39" parent="line_1_39" style="txt_menu_thumbnail" txt_1="Công ty cổ phần sen Hà Tĩnh" text="Công ty cổ phần sen Hà Tĩnh" />
+
+	<layer name="txt_1_40" parent="line_1_40" style="txt_menu_thumbnail" txt_1="HTX chế biến và kinh doanh hải sản hoa Linh Chi" text="HTX chế biến và kinh doanh hải sản hoa Linh Chi" />
+
+	<layer name="txt_1_41" parent="line_1_41" style="txt_menu_thumbnail" txt_1="HKD Trương Thị Yến" text="HKD Trương Thị Yến" />
+
+	<layer name="txt_1_42" parent="line_1_42" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Tuấn Bảo" text="HKD Nguyễn Tuấn Bảo" />
+
+	<layer name="txt_1_43" parent="line_1_43" style="txt_menu_thumbnail" txt_1="Công ty cổ phần rượu Whisky Can Lộc" text="Công ty cổ phần rượu Whisky Can Lộc" />
+
+	<layer name="txt_1_44" parent="line_1_44" style="txt_menu_thumbnail" txt_1="HKD Lại Thị Huyền Châu" text="HKD Lại Thị Huyền Châu" />
+
+	<layer name="txt_1_45" parent="line_1_45" style="txt_menu_thumbnail" txt_1="HKD Hoa Tùng" text="HKD Hoa Tùng" />
+
+	<layer name="txt_1_46" parent="line_1_46" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Thị Ninh" text="HKD Nguyễn Thị Ninh" />
+
+	<layer name="txt_1_47" parent="line_1_47" style="txt_menu_thumbnail" txt_1="HTX Nuôi ong lấy mật xã Đức Lĩnh" text="HTX Nuôi ong lấy mật xã Đức Lĩnh" />
+
+	<layer name="txt_1_48" parent="line_1_48" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Thị Khoàn, HKD Hường Quý" text="HKD Nguyễn Thị Khoàn, HKD Hường Quý" />
+
+	<layer name="txt_1_49" parent="line_1_49" style="txt_menu_thumbnail" txt_1="HKD Tâm Anh Bakery" text="HKD Tâm Anh Bakery" />
+
+	<layer name="txt_1_50" parent="line_1_50" style="txt_menu_thumbnail" txt_1="HKD Phan Khắc Đạt, THT SX kinh doanh bánh đa Thanh Hà" text="HKD Phan Khắc Đạt, THT SX kinh doanh bánh đa Thanh Hà" />
+
+	<layer name="txt_1_51" parent="line_1_51" style="txt_menu_thumbnail" txt_1="Cơ sở sản xuất Hoài Võ" text="Cơ sở sản xuất Hoài Võ" />
+
+	<layer name="txt_1_52" parent="line_1_52" style="txt_menu_thumbnail" txt_1="Hộ SXKD Chả lụa Nài Sơn, nem chua Sông Phủ" text="Hộ SXKD Chả lụa Nài Sơn, nem chua Sông Phủ" />
+
+	<layer name="txt_1_53" parent="line_1_53" style="txt_menu_thumbnail" txt_1="HTX nuôi ong lấy mật Kỳ Lạc, HKD Lê Thị Bình" text="HTX nuôi ong lấy mật Kỳ Lạc, HKD Lê Thị Bình" />
+
+	<layer name="txt_1_54" parent="line_1_54" style="txt_menu_thumbnail" txt_1="CSKD Bùi Quang Chín, HKD Nguyễn Đặng Sửu " text="CSKD Bùi Quang Chín, HKD Nguyễn Đặng Sửu " />
+
+	<layer name="txt_1_55" parent="line_1_55" style="txt_menu_thumbnail" txt_1="Công ty CP SX XNK Lệ Phương, HKD Nguyễn Thị Phong" text="Công ty Cổ phần sản xuất, xuất nhập khẩu Lệ Phương, HKD Nguyễn Thị Phong" />
+
+	<layer name="txt_1_56" parent="line_1_56" style="txt_menu_thumbnail" txt_1="Công ty CP ĐTPT Phú Cường Đạt, Công ty TNHH Thắm An" text="Công ty CP ĐTPT Phú Cường Đạt, Công ty TNHH Thắm An" />
+
+	<layer name="txt_1_57" parent="line_1_57" style="txt_menu_thumbnail" txt_1="HKD Nguyễn Thị Thu Lê" text="HKD Nguyễn Thị Thu Lê" />
+
+	<layer name="txt_1_58" parent="line_1_58" style="txt_menu_thumbnail" txt_1="Hộ SXKD Lê Thị Thủy
+" text="Hộ SXKD Lê Thị Thủy" />
+
+	<layer name="txt_1_59" parent="line_1_59" style="txt_menu_thumbnail" txt_1="Hộ SXKD Nguyễn Thị Hải" text="Hộ SXKD Nguyễn Thị Hải" />
+
+	<layer name="txt_1_60" parent="line_1_60" style="txt_menu_thumbnail" txt_1="Hộ kinh doanh Nguyễn Thị Hồng Nhung" text="Hộ kinh doanh Nguyễn Thị Hồng Nhung" />
+
+	<layer name="txt_1_61" parent="line_1_61" style="txt_menu_thumbnail" txt_1="Hộ sản xuất kinh doanh Nguyễn Ngọc Quế" text="Hộ sản xuất kinh doanh Nguyễn Ngọc Quế" />
+
+	<layer name="txt_1_62" parent="line_1_62" style="txt_menu_thumbnail" txt_1="HKD thực phẩm sạch Song Anh" text="HKD thực phẩm sạch Song Anh" />
+
+
+
+</krpano>

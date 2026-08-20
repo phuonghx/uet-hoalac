@@ -1,0 +1,16 @@
+{
+	"token": {
+		"product_description": "Product Description",
+		"Chưa có thông tin" : "No data" ,
+		"product_info" : "Product Information",
+		"product_type": "Type of Product",
+		"product_title": "Product Title",
+		"product_subject" : "Subject",
+		"product_date": "Date or period",
+		"product_maker": "Maker",
+		"product_materials" : "Materials and techniques",
+		"product_measurement": "Measurement",
+		"product_inscriptions": "Inscriptions and markings",
+		"product_distinguishing" : "Distinguishing features"
+	}
+}

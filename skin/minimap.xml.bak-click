@@ -1,0 +1,445 @@
+<krpano>
+
+	<!--
+		========================================================================
+		MINIMAP DẠNG SƠ ĐỒ + SPOT
+		========================================================================
+
+		Làm theo cách của dự án hatinh_expo: một ảnh sơ đồ làm nền, mỗi điểm chụp
+		là một <layer> con đặt theo toạ độ pixel của ảnh, click thì đổi scene.
+		Điểm đang đứng có pin đỏ + nón radar xoay theo hướng nhìn.
+
+		Ảnh nền: skin/minimap.jpg (629 x 357)
+		Toạ độ spot tính từ TÂM ảnh: x từ -314 đến +314, y từ -178 đến +178.
+
+		Phím tắt:  M = ẩn/hiện sơ đồ   |   P = chế độ cắm điểm
+	-->
+
+
+	<!-- ============ KHUNG (không co giãn theo ảnh) ============ -->
+
+	<layer name="minimap_box" keep="true"
+		type="container"
+		align="righttop" x="14" y="14"
+		width="264" height="150"
+		width.mobile="198" height.mobile="113"
+		bgcolor="0x000000" bgalpha="0.35"
+		bgroundedge="6"
+		bgborder="2 0xFFFFFF 0.85"
+		bgshadow="0 3 10 0x000000 0.5"
+		maskchildren="true"
+		zorder="20"
+		big="false"
+		/>
+
+
+	<!-- ============ ẢNH SƠ ĐỒ ============ -->
+
+	<layer name="minimap_img" keep="true"
+		parent="minimap_box"
+		url="minimap.jpg"
+		align="center" edge="center" x="0" y="0"
+		scale="0.42" scale.mobile="0.315"
+		scalechildren="true"
+		handcursor="false"
+		zorder="0"
+		/>
+
+
+	<!-- ============ ĐIỂM CHỤP ============ -->
+
+	<style name="minimap_spot" keep="true"
+		parent="minimap_img"
+		url="vtourskin_mapspot.png"
+		align="center" edge="bottom"
+		scale="0.50"
+		zorder="1"
+		handcursor="true"
+		onover="minimap_hover(get(spottitle));"
+		onout="set(layer[minimap_tip].visible,false);"
+		onclick="minimap_goto(get(linkedscene));"
+		/>
+
+	<layer name="mmspot_scene_matdat_01" style="minimap_spot"
+	       x="-210" y="-105" heading="0"
+	       linkedscene="scene_matdat_01" spottitle="matdat_01" />
+	<layer name="mmspot_scene_matdat_02" style="minimap_spot"
+	       x="-140" y="-105" heading="0"
+	       linkedscene="scene_matdat_02" spottitle="matdat_02" />
+	<layer name="mmspot_scene_matdat_03" style="minimap_spot"
+	       x="-70" y="-105" heading="0"
+	       linkedscene="scene_matdat_03" spottitle="matdat_03" />
+	<layer name="mmspot_scene_matdat_04" style="minimap_spot"
+	       x="0" y="-105" heading="0"
+	       linkedscene="scene_matdat_04" spottitle="matdat_04" />
+	<layer name="mmspot_scene_matdat_05" style="minimap_spot"
+	       x="70" y="-105" heading="0"
+	       linkedscene="scene_matdat_05" spottitle="matdat_05" />
+	<layer name="mmspot_scene_matdat_06" style="minimap_spot"
+	       x="140" y="-105" heading="0"
+	       linkedscene="scene_matdat_06" spottitle="matdat_06" />
+	<layer name="mmspot_scene_matdat_08" style="minimap_spot"
+	       x="210" y="-105" heading="0"
+	       linkedscene="scene_matdat_08" spottitle="matdat_08" />
+	<layer name="mmspot_scene_matdat_09" style="minimap_spot"
+	       x="-210" y="-35" heading="0"
+	       linkedscene="scene_matdat_09" spottitle="matdat_09" />
+	<layer name="mmspot_scene_matdat_10" style="minimap_spot"
+	       x="-140" y="-35" heading="0"
+	       linkedscene="scene_matdat_10" spottitle="matdat_10" />
+	<layer name="mmspot_scene_matdat_11" style="minimap_spot"
+	       x="-70" y="-35" heading="0"
+	       linkedscene="scene_matdat_11" spottitle="matdat_11" />
+	<layer name="mmspot_scene_matdat_12" style="minimap_spot"
+	       x="0" y="-35" heading="0"
+	       linkedscene="scene_matdat_12" spottitle="matdat_12" />
+	<layer name="mmspot_scene_matdat_13" style="minimap_spot"
+	       x="70" y="-35" heading="0"
+	       linkedscene="scene_matdat_13" spottitle="matdat_13" />
+	<layer name="mmspot_scene_matdat_14" style="minimap_spot"
+	       x="140" y="-35" heading="0"
+	       linkedscene="scene_matdat_14" spottitle="matdat_14" />
+	<layer name="mmspot_scene_matdat_15" style="minimap_spot"
+	       x="210" y="-35" heading="0"
+	       linkedscene="scene_matdat_15" spottitle="matdat_15" />
+	<layer name="mmspot_scene_matdat_16" style="minimap_spot"
+	       x="-210" y="35" heading="0"
+	       linkedscene="scene_matdat_16" spottitle="matdat_16" />
+	<layer name="mmspot_scene_matdat_17" style="minimap_spot"
+	       x="-140" y="35" heading="0"
+	       linkedscene="scene_matdat_17" spottitle="matdat_17" />
+	<layer name="mmspot_scene_matdat_18" style="minimap_spot"
+	       x="-70" y="35" heading="0"
+	       linkedscene="scene_matdat_18" spottitle="matdat_18" />
+	<layer name="mmspot_scene_matdat_19" style="minimap_spot"
+	       x="0" y="35" heading="0"
+	       linkedscene="scene_matdat_19" spottitle="matdat_19" />
+	<layer name="mmspot_scene_trencao_01" style="minimap_spot"
+	       x="70" y="35" heading="0"
+	       linkedscene="scene_trencao_01" spottitle="trencao_01" />
+	<layer name="mmspot_scene_trencao_02" style="minimap_spot"
+	       x="140" y="35" heading="0"
+	       linkedscene="scene_trencao_02" spottitle="trencao_02" />
+	<layer name="mmspot_scene_trencao_03" style="minimap_spot"
+	       x="210" y="35" heading="0"
+	       linkedscene="scene_trencao_03" spottitle="trencao_03" />
+	<layer name="mmspot_scene_trencao_05" style="minimap_spot"
+	       x="-210" y="105" heading="0"
+	       linkedscene="scene_trencao_05" spottitle="trencao_05" />
+	<layer name="mmspot_scene_trencao_06" style="minimap_spot"
+	       x="-140" y="105" heading="0"
+	       linkedscene="scene_trencao_06" spottitle="trencao_06" />
+	<layer name="mmspot_scene_trencao_07" style="minimap_spot"
+	       x="-70" y="105" heading="0"
+	       linkedscene="scene_trencao_07" spottitle="trencao_07" />
+	<layer name="mmspot_scene_trencao_08" style="minimap_spot"
+	       x="0" y="105" heading="0"
+	       linkedscene="scene_trencao_08" spottitle="trencao_08" />
+	<layer name="mmspot_scene_trencao_09" style="minimap_spot"
+	       x="70" y="105" heading="0"
+	       linkedscene="scene_trencao_09" spottitle="trencao_09" />
+	<layer name="mmspot_scene_trencao_10" style="minimap_spot"
+	       x="140" y="105" heading="0"
+	       linkedscene="scene_trencao_10" spottitle="trencao_10" />
+	<layer name="mmspot_scene_trencao_11" style="minimap_spot"
+	       x="210" y="105" heading="0"
+	       linkedscene="scene_trencao_11" spottitle="trencao_11" />
+
+	<!-- pin đỏ đánh dấu điểm đang đứng - parent được trỏ lại theo scene -->
+	<layer name="minimap_active" keep="true" visible="false"
+		url="vtourskin_mapspotactive.png"
+		align="center" edge="bottom"
+		scale="0.62"
+		zorder="3"
+		enabled="false"
+		/>
+
+	<!-- nón hướng nhìn (plugin radar chính thức của krpano) -->
+	<layer name="minimap_radar" keep="true" visible="false"
+		url.html5="../plugins/radar.js"
+		align="center" edge="center"
+		scale="0.55"
+		zorder="2"
+		enabled="false"
+		heading="0.0" headingoffset="0.0"
+		fillcolor="0xFFFFFF" fillalpha="0.45"
+		linewidth="1.0" linecolor="0x4FC3F7" linealpha="0.8"
+		/>
+
+	<!-- tên điểm khi rê chuột -->
+	<layer name="minimap_tip" keep="true" type="text" visible="false"
+		parent="minimap_box"
+		align="bottom" y="4" zorder="9"
+		enabled="false"
+		padding="2 6"
+		bgcolor="0x000000" bgalpha="0.7" bgroundedge="3"
+		css="color:#FFFFFF; font-family:Arial; font-size:11px;"
+		/>
+
+
+	<!-- ============ NÚT ============ -->
+
+	<style name="minimap_btn"
+		type="text"
+		parent="minimap_box"
+		zorder="10"
+		padding="3 7"
+		bgcolor="0x000000" bgalpha="0.6" bgroundedge="4"
+		bgborder="1 0xFFFFFF 0.45"
+		css="color:#FFFFFF; font-family:Arial; font-size:11px;"
+		onover="set(bgalpha,0.9);"
+		onout="set(bgalpha,0.6);"
+		/>
+
+	<layer name="minimap_expandbtn" style="minimap_btn" keep="true"
+		align="lefttop" x="6" y="6"
+		html="Phóng to"
+		onclick="minimap_toggleexpand();"
+		/>
+
+	<layer name="minimap_hidebtn" style="minimap_btn" keep="true"
+		align="righttop" x="6" y="6"
+		html="Ẩn"
+		onclick="minimap_show(false);"
+		/>
+
+	<layer name="minimap_openbtn" keep="true" type="text" visible="false"
+		align="righttop" x="14" y="14" zorder="20"
+		padding="6 12"
+		bgcolor="0x000000" bgalpha="0.7" bgroundedge="6"
+		bgborder="2 0xFFFFFF 0.85"
+		css="color:#FFFFFF; font-family:Arial; font-size:12px;"
+		html="Sơ đồ"
+		onclick="minimap_show(true);"
+		/>
+
+
+	<!-- ============ CHẾ ĐỘ CẮM ĐIỂM (phím P) ============ -->
+
+	<layer name="minimap_pickbtn" style="minimap_btn" keep="true" visible="false"
+		align="leftbottom" x="6" y="6"
+		bgcolor="0x1B5E20"
+		html="Cắm điểm: TẮT"
+		onclick="minimap_togglepick();"
+		/>
+
+	<layer name="minimap_headleft" style="minimap_btn" keep="true" visible="false"
+		align="leftbottom" x="6" y="26"
+		html="Hướng -5"
+		onclick="minimap_turn(-5);"
+		/>
+
+	<layer name="minimap_headright" style="minimap_btn" keep="true" visible="false"
+		align="leftbottom" x="78" y="26"
+		html="Hướng +5"
+		onclick="minimap_turn(5);"
+		/>
+
+	<layer name="minimap_exportbtn" style="minimap_btn" keep="true" visible="false"
+		align="rightbottom" x="6" y="6"
+		html="Xuất toạ độ"
+		onclick="minimap_export();"
+		/>
+
+	<layer name="minimap_dump" keep="true" type="text" visible="false"
+		align="center" width="82%" height="82%" zorder="100"
+		bgcolor="0x101820" bgalpha="0.97" bgroundedge="8"
+		bgborder="2 0xFFFFFF 0.8"
+		padding="14"
+		selectable="true" htmlscrollbars="true"
+		css="color:#CFE9FF; font-family:Consolas,monospace; font-size:12px;"
+		/>
+
+	<layer name="minimap_dumpclose" keep="true" type="text" visible="false"
+		parent="minimap_dump"
+		align="righttop" x="8" y="8" zorder="101"
+		padding="3 9"
+		bgcolor="0xFFFFFF" bgalpha="0.9" bgroundedge="4"
+		css="color:#101820; font-family:Arial; font-size:12px;"
+		html="Đóng"
+		onclick="set(layer[minimap_dump].visible,false); set(layer[minimap_dumpclose].visible,false);"
+		/>
+
+
+	<!-- ============ ĐỒNG BỘ ============ -->
+
+	<events name="minimap_events" keep="true"
+		onnewpano="minimap_update();"
+		onkeydown="minimap_keys();"
+		/>
+
+
+	<!-- ============ ACTIONS ============ -->
+
+	<!-- trỏ pin đỏ + radar sang spot của scene hiện tại -->
+	<action name="minimap_update">
+		txtadd(mm_spotname, 'mmspot_', get(xml.scene));
+		if(layer[get(mm_spotname)],
+			set(layer[minimap_active].parent, get(mm_spotname));
+			set(layer[minimap_active].visible, true);
+			set(layer[minimap_radar].parent, get(mm_spotname));
+			copy(layer[minimap_radar].heading, layer[get(mm_spotname)].heading);
+			set(layer[minimap_radar].visible, true);
+		,
+			set(layer[minimap_active].visible, false);
+			set(layer[minimap_radar].visible, false);
+		);
+	</action>
+
+
+	<!-- ở chế độ cắm điểm thì click không đổi scene -->
+	<action name="minimap_goto">
+		if(!minimap_picking,
+			skin_loadscene(%1, get(skin_settings.loadscene_blend));
+		);
+	</action>
+
+
+	<action name="minimap_hover">
+		if('%1' == '',
+			set(layer[minimap_tip].visible, false);
+		,
+			set(layer[minimap_tip].html, '%1');
+			set(layer[minimap_tip].visible, true);
+		);
+	</action>
+
+
+	<action name="minimap_show">
+		if(%1,
+			set(layer[minimap_box].visible, true);
+			set(layer[minimap_openbtn].visible, false);
+		,
+			set(layer[minimap_box].visible, false);
+			set(layer[minimap_openbtn].visible, true);
+		);
+	</action>
+
+
+	<action name="minimap_toggleexpand">
+		if(layer[minimap_box].big,
+
+			set(layer[minimap_box].big, false);
+			layer[minimap_box].changeorigin(righttop, righttop);
+			if(device.mobile, set(mm_s, 0.315), set(mm_s, 0.42));
+			calc(mm_bw, 629 * mm_s);
+			calc(mm_bh, 357 * mm_s);
+			tween(layer[minimap_box].x|layer[minimap_box].y, 14|14, 0.5, easeoutquad);
+			tween(layer[minimap_box].width|layer[minimap_box].height, calc('' + mm_bw + '|' + mm_bh), 0.5, easeoutquad);
+			tween(layer[minimap_img].scale, get(mm_s), 0.5, easeoutquad);
+			set(layer[minimap_expandbtn].html, 'Phóng to');
+
+		,
+
+			set(layer[minimap_box].big, true);
+			layer[minimap_box].changeorigin(center, center);
+			<!-- kích thước lớn nhất vẫn lọt màn hình -->
+			calc(mm_sw, stagewidth  * 0.92 / 629);
+			calc(mm_sh, stageheight * 0.86 / 357);
+			if(mm_sw GT mm_sh, copy(mm_s, mm_sh), copy(mm_s, mm_sw));
+			calc(mm_bw, 629 * mm_s);
+			calc(mm_bh, 357 * mm_s);
+			tween(layer[minimap_box].x|layer[minimap_box].y, 0|0, 0.5, easeoutquad);
+			tween(layer[minimap_box].width|layer[minimap_box].height, calc('' + mm_bw + '|' + mm_bh), 0.5, easeoutquad);
+			tween(layer[minimap_img].scale, get(mm_s), 0.5, easeoutquad);
+			set(layer[minimap_expandbtn].html, 'Thu nhỏ');
+
+		);
+	</action>
+
+
+	<action name="minimap_keys">
+		if(keycode == 77, minimap_show( calc(layer[minimap_box].visible ? false : true) ); );
+		if(keycode == 80, minimap_togglepick(); );
+	</action>
+
+
+	<!-- ============================================================
+	     CẮM ĐIỂM
+
+	     Bật lên rồi kéo từng pin vào đúng chỗ trên sơ đồ.
+	     Nút "Hướng -5 / +5" xoay nón radar của điểm đang đứng.
+	     ============================================================ -->
+
+	<action name="minimap_togglepick">
+		if(minimap_picking,
+			set(minimap_picking, false);
+			set(layer[minimap_pickbtn].html, 'Cắm điểm: TẮT');
+			minimap_setdrag(false);
+		,
+			set(minimap_picking, true);
+			set(layer[minimap_pickbtn].html, 'Cắm điểm: BẬT');
+			if(!layer[minimap_box].big, minimap_toggleexpand(); );
+			minimap_setdrag(true);
+		);
+		set(layer[minimap_pickbtn].visible, true);
+		set(layer[minimap_exportbtn].visible, true);
+		set(layer[minimap_headleft].visible, true);
+		set(layer[minimap_headright].visible, true);
+	</action>
+
+
+	<action name="minimap_setdrag">
+		for(set(i,0), i LT scene.count, inc(i),
+			txtadd(mm_n, 'mmspot_', get(scene[get(i)].name));
+			if(layer[get(mm_n)],
+				if(%1,
+					set(layer[get(mm_n)].ondown, 'minimap_drag();');
+				,
+					set(layer[get(mm_n)].ondown, '');
+				);
+			);
+		);
+	</action>
+
+
+	<!-- kéo spot: chia delta cho scale của ảnh vì spot là con của ảnh đã co giãn -->
+	<action name="minimap_drag">
+		copy(mm_dx, x);
+		copy(mm_dy, y);
+		copy(mm_sx, mouse.stagex);
+		copy(mm_sy, mouse.stagey);
+		copy(mm_sc, layer[minimap_img].scale);
+		asyncloop(pressed,
+			calc(x, mm_dx + (mouse.stagex - mm_sx)/mm_sc);
+			calc(y, mm_dy + (mouse.stagey - mm_sy)/mm_sc);
+		);
+	</action>
+
+
+	<!-- xoay nón radar của điểm đang đứng -->
+	<action name="minimap_turn">
+		txtadd(mm_spotname, 'mmspot_', get(xml.scene));
+		if(layer[get(mm_spotname)],
+			calc(layer[get(mm_spotname)].heading, layer[get(mm_spotname)].heading + %1);
+			copy(layer[minimap_radar].heading, layer[get(mm_spotname)].heading);
+			txtadd(mm_msg, 'heading = ', get(layer[get(mm_spotname)].heading));
+			set(layer[minimap_tip].html, get(mm_msg));
+			set(layer[minimap_tip].visible, true);
+		);
+	</action>
+
+
+	<action name="minimap_export">
+		set(mm_out, '');
+		for(set(i,0), i LT scene.count, inc(i),
+			txtadd(mm_n, 'mmspot_', get(scene[get(i)].name));
+			if(layer[get(mm_n)],
+				txtadd(mm_out, get(mm_out),
+				       '&lt;layer name="', get(mm_n), '" style="minimap_spot"[br]',
+				       '       x="', get(layer[get(mm_n)].x),
+				       '" y="', get(layer[get(mm_n)].y),
+				       '" heading="', get(layer[get(mm_n)].heading), '"[br]',
+				       '       linkedscene="', get(scene[get(i)].name),
+				       '" spottitle="', get(scene[get(i)].title), '" /&gt;[br]');
+			);
+		);
+		set(layer[minimap_dump].html, '');
+		txtadd(layer[minimap_dump].html,
+		       '[b]Dán khối này đè lên phần 28 spot trong skin/minimap.xml[/b][br][br]',
+		       get(mm_out));
+		set(layer[minimap_dump].visible, true);
+		set(layer[minimap_dumpclose].visible, true);
+	</action>
+
+</krpano>

@@ -1,0 +1,92 @@
+<krpano>
+
+	<!--
+		========================================================================
+		TUỲ BIẾN THANH ĐIỀU KHIỂN
+		========================================================================
+
+		Nạp SAU vtourskin.xml và sau vtourskin_design_ultra_light.xml.
+
+		==== BA CÁI BẪY ĐÃ DÍNH, ĐỪNG LẶP LẠI ====
+
+		1) skin_control_bar / skin_control_bar_buttons nằm BÊN TRONG skin_layer
+		   (vtourskin.xml dòng 316-353). Khai báo lại chúng ở cấp gốc theo kiểu
+		   lồng thẻ sẽ gỡ chúng khỏi cây layer -> mất sạch thanh điều khiển.
+		   => Thêm nút bằng cách khai báo ở cấp gốc + parent="skin_control_bar_buttons".
+
+		2) Action skin_arrange_buttons (vtourskin.xml dòng 642) TỰ TÍNH LẠI
+		   visible và x cho các nút gốc mỗi lần resize:
+		     skin_btn_navi, skin_btn_prev, skin_btn_next, skin_btn_thumbs,
+		     skin_btn_map, skin_btn_gyro, skin_btn_vr, skin_btn_fs, skin_btn_hide
+		   => Đặt x hay visible cho mấy nút đó ở đây là vô ích, bị ghi đè ngay.
+		      Nút thêm mới phải ĐẶT TÊN KHÁC thì mới giữ được vị trí.
+
+		3) Đừng gắn ?v= vào <include>. vtourskin.xml dùng <vtourskinxmlpath url="./" />
+		   nên query string làm hỏng đường dẫn ảnh sprite -> mất sạch icon.
+	-->
+
+	<!--
+		design_skin_images : sprite của hatinh; phần trên giữ layout chuẩn krpano,
+		                     phần dưới có thêm icon home (0|760) và logo FIMO (0|1030)
+		design_bgcolor/alpha : trắng mờ 0.18. Muốn trong suốt hẳn như hatinh thì
+		                     để design_bgalpha="0"; đậm hơn thì tăng dần 0.25 / 0.3.
+		thumbs             : false = bỏ dải thumbnail cuộn ngang, thay bằng
+		                     bảng lưới "Tất cả các điểm" (skin/gallery.xml)
+	-->
+	<skin_settings
+
+		title="false"
+
+		layout_width="100%"
+		layout_maxwidth="100%"
+
+		controlbar_width="-24"
+		controlbar_height="40"
+		controlbar_offset="20"
+		controlbar_offset_closed="-40"
+
+		design_skin_images="vtourskin-check-in.png"
+
+		design_bgcolor="0xFFFFFF"
+		design_bgalpha="0.18"
+		design_bgborder="0"
+		design_bgroundedge="4"
+		design_bgshadow="0"
+
+		design_text_css="color:#FFFFFF; font-family:Arial;"
+		design_text_shadow="1"
+
+		thumbs="false"
+
+		webvr="false"
+		/>
+
+
+	<!--
+		Bốn nút btn_gallery / btn_minimap / btn_home / btn_fimo giờ nằm TRỰC TIẾP
+		trong skin/vtourskin.xml, ngay trong <layer name="skin_control_bar_buttons">,
+		đúng cách bên hatinh làm. Khai báo từ file ngoài bằng parent="..." không lên.
+	-->
+
+	<!-- ============ TOOLTIP TIẾNG VIỆT ============ -->
+
+	<action name="skin_custom_tooltips" autorun="onstart">
+		delayedcall(0.5,
+			skin_custom_tip(skin_btn_gyro, 'Xoay theo điện thoại');
+			skin_custom_tip(skin_btn_fs,   'Toàn màn hình');
+			skin_custom_tip(skin_btn_hide, 'Ẩn thanh điều khiển');
+			skin_custom_tip(btn_gallery,   'Tất cả các điểm');
+			skin_custom_tip(btn_minimap,   'Sơ đồ khuôn viên');
+			skin_custom_tip(btn_home,      'Về điểm đầu tiên');
+			skin_custom_tip(btn_fimo,      'Powered by FIMO');
+		);
+	</action>
+
+	<action name="skin_custom_tip">
+		if(layer[%1],
+			set(layer[%1].tooltip, %2);
+			layer[%1].loadstyle(skin_tooltips);
+		);
+	</action>
+
+</krpano>

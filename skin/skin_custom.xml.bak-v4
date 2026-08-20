@@ -1,0 +1,151 @@
+<krpano>
+
+	<!--
+		========================================================================
+		TUỲ BIẾN THANH ĐIỀU KHIỂN — theo style bên hatinh_expo
+		========================================================================
+
+		Nạp SAU vtourskin.xml và sau vtourskin_design_ultra_light.xml
+		nên các giá trị ở đây ghi đè lên hai file kia.
+
+		!! QUAN TRỌNG khi sửa file này !!
+		skin_control_bar và skin_control_bar_buttons nằm BÊN TRONG skin_layer
+		(xem vtourskin.xml dòng 316-353). Nếu khai báo lại chúng ở cấp gốc
+		(<layer name="skin_control_bar"> ... </layer>) thì krpano gỡ chúng ra
+		khỏi cây layer và cả thanh điều khiển biến mất.
+
+		=> Muốn thêm/sửa nút thì khai báo layer ở cấp gốc và chỉ định
+		   parent="skin_control_bar_buttons", TUYỆT ĐỐI không lồng thẻ.
+	-->
+
+	<!--
+		design_skin_images : sprite của hatinh, phần dưới có thêm icon home
+		                     (crop 0|760) và logo FIMO (crop 0|1030)
+		design_bgalpha     : 0 = nền thanh trong suốt hẳn, giống hatinh.
+		                     Nếu icon trắng bị chìm trên pano sáng thì để 0.3
+	-->
+	<skin_settings
+
+		title="false"
+
+		layout_width="100%"
+		layout_maxwidth="100%"
+
+		controlbar_width="-10"
+		controlbar_height="40"
+		controlbar_offset="0"
+		controlbar_offset_closed="-40"
+
+		design_skin_images="vtourskin-check-in.png"
+
+		design_bgcolor="0x000000"
+		design_bgalpha="0"
+		design_bgborder="0"
+		design_bgroundedge="0"
+		design_bgshadow="0"
+
+		design_text_css="color:#FFFFFF; font-family:Arial;"
+		design_text_shadow="1"
+
+		design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+		design_thumbborder_padding="0"
+		design_thumbborder_bgroundedge="0"
+
+		thumbs="false"
+
+		webvr="false"
+
+		loadscene_flags="ZOOMBLEND"
+		/>
+
+
+	<!-- ============================================================
+	     NÚT TRÊN THANH ĐIỀU KHIỂN
+
+	     Tất cả đều dùng parent="skin_control_bar_buttons", không lồng thẻ.
+	     Bên trái:  ‹ | home | danh sách | sơ đồ | FIMO
+	     Bên phải:  toàn màn hình | ẩn thanh | ›
+	     ============================================================ -->
+
+	<!-- bỏ cụm mũi tên + phóng to/thu nhỏ ở giữa thanh (hatinh cũng bỏ) -->
+	<layer name="skin_btn_navi"
+		parent="skin_control_bar_buttons"
+		visible="false" enabled="false"
+		/>
+
+	<!-- về điểm đầu tiên -->
+	<layer name="skin_btn_home"
+		parent="skin_control_bar_buttons"
+		style="skin_base|skin_glow"
+		crop="0|760|64|64"
+		align="left" x="45" y="0" scale="0.5"
+		onclick="loadscene(get(scene[0].name), null, MERGE, ZOOMBLEND(0.5, 1.3, easeInOutSine));"
+		/>
+
+	<!-- nút lưới: mở bảng Tất cả các điểm (thay cho dải thumbnail cuộn ngang) -->
+	<layer name="skin_btn_thumbs"
+		parent="skin_control_bar_buttons"
+		x="85"
+		ondown=""
+		onclick="gallery_toggle();"
+		/>
+
+	<!-- mở/đóng sơ đồ, thay cho chip "Sơ đồ" nổi ở góc phải trên -->
+	<layer name="skin_btn_minimap"
+		parent="skin_control_bar_buttons"
+		style="skin_base|skin_glow"
+		crop="64|128|64|64"
+		align="left" x="125" y="0" scale="0.5"
+		onclick="minimap_toggle();"
+		/>
+
+	<!-- logo FIMO -->
+	<layer name="skin_btn_fimo"
+		parent="skin_control_bar_buttons"
+		style="skin_base|skin_glow"
+		crop="0|1030|128|60"
+		align="left" x="170" y="2" scale="0.5" scale.mobile="0.4"
+		onclick="openurl('https://meta.fimo.vn/', _blank);"
+		/>
+
+
+	<!--
+		NHÃN KIỂM TRA — xoá khi đã chắc mọi thứ chạy.
+		Nếu KHÔNG thấy chữ này ở góc trái trên thì trình duyệt vẫn đang dùng
+		bản XML cũ, hoặc file skin_custom.xml chưa được nạp.
+	-->
+	<layer name="skin_custom_marker" keep="true"
+		type="text"
+		align="lefttop" x="10" y="10" zorder="80"
+		padding="3 8"
+		bgcolor="0x00AA55" bgalpha="0.9" bgroundedge="4"
+		enabled="false"
+		css="color:#FFFFFF; font-family:Arial; font-size:11px;"
+		html="skin_custom v4 - sprite check-in"
+		/>
+
+
+	<!-- ============ TOOLTIP TIẾNG VIỆT ============ -->
+
+	<action name="skin_custom_tooltips" autorun="onstart">
+		delayedcall(0.4,
+			skin_custom_tip(skin_btn_prev,    'Điểm trước');
+			skin_custom_tip(skin_btn_next,    'Điểm tiếp theo');
+			skin_custom_tip(skin_btn_home,    'Về điểm đầu tiên');
+			skin_custom_tip(skin_btn_thumbs,  'Danh sách các vị trí');
+			skin_custom_tip(skin_btn_minimap, 'Sơ đồ khuôn viên');
+			skin_custom_tip(skin_btn_fimo,    'Powered by FIMO');
+			skin_custom_tip(skin_btn_gyro,    'Xoay theo điện thoại');
+			skin_custom_tip(skin_btn_fs,      'Toàn màn hình');
+			skin_custom_tip(skin_btn_hide,    'Ẩn thanh điều khiển');
+		);
+	</action>
+
+	<action name="skin_custom_tip">
+		if(layer[%1],
+			set(layer[%1].tooltip, %2);
+			layer[%1].loadstyle(skin_tooltips);
+		);
+	</action>
+
+</krpano>

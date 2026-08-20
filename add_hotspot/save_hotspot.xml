@@ -1,0 +1,17 @@
+<krpano>
+
+	<include url="plugins_l/plugin_a/photo.xml"/>
+	<include url="plugins_l/plugin_a/youtube.xml"/>
+	<include url="plugins_l/plugin_a/video.xml"/>
+
+	<addhs_settings pin_cod="6249" sound_close_click="true" video_close_click="true" youtube_close_click="true" FIRSTXML="tour" path="%FIRSTXML%/" action_list="'add_hotspot/plugins_l/actionSM.html'" photo="true" video="true" youtube="true" />
+
+
+	<!--  hotspot -->
+	<style name="pl_hs_add_hs" keep="true" enabled2="true" visible2="true" visible="false" alpha="1" alpha2="1" capture="false" handcursor="true" zorder="0" install_onclick="14" fov_EL="90" fillcolor="0xB5E432" fillcolor2="0xB5E432" fillalpha="0.30" fillalpha2="0.30" borderwidth="2" borderwidth2="2" bordercolor="0x7CF93E" bordercolor2="0x55FF00" borderalpha="0.00" borderalpha2="0.00" onover="set_pol_2(get(name));" onout="set_pol_1(get(name));" ondown="ondown_pl_hs();" blendmode="normal" group="null" />
+
+	<!-- polygonal hotspot -->
+
+
+
+</krpano>

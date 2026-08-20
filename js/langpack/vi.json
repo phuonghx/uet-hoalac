@@ -1,0 +1,17 @@
+{
+	"token": {
+		"product_description": "Mô tả sản phẩm",
+		"product_info" : "Thông tin sản phẩm",
+		"product_type": "Loại sản phẩm",
+		"product_title": "Tên sản phẩm",
+		"product_subject" : "Chủ đề của sản phẩm",
+		"product_date": "Năm sản xuất sản phẩm",
+		"product_maker": "Tác giả, nghệ nhân, nhà sản xuất",
+		"product_materials" : "Vật liệu và kỹ thuật",
+		"product_measurement": "Kích thước, trọng lượng",
+		"product_inscriptions": "Chữ khắc và dấu hiệu",
+		"product_distinguishing" : "Đặc điểm phân biệt"
+
+	}
+	
+}
