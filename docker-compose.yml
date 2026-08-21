@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - dokploy-network
+
+# Dokploy dinh tuyen domain qua Traefik tren mang nay.
+# Sau khi deploy: tab Domains cua service -> them domain -> chon service "web", port 80.
+networks:
+  dokploy-network:
+    external: true
