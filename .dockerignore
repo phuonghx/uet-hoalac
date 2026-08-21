@@ -1,0 +1,50 @@
+.git
+.gitignore
+*.bak
+*.bak-*
+tour.html.bak*
+tour.xml.bak*
+tour.xml - backup-*.xml
+tour_testingserver.exe
+tour_testingserver_macos
+minimap-tool.html
+MINIMAP-README.md
+Dockerfile
+.dockerignore
+docker-compose.yml
+.git
+.gitattributes
+.gitignore
+
+# File cau hinh deploy - khong phuc vu web
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Tool/binary khong dung cho web
+tour_testingserver.exe
+tour_testingserver_macos
+*.exe
+
+# Tai lieu / bang tinh noi bo
+*.xlsx
+*.md
+README*
+
+# Thu muc agent / editor
+.claude
+.knowns
+.codex
+.agents
+.vscode
+dev/
+
+# Ban backup tam
+*.bak
+*.tiles.bak
+panos/*.tiles.bak
+
+# File tam he thong
+Thumbs.db
+.DS_Store
+~$*
