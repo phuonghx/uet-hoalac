@@ -514,13 +514,13 @@
 	       edge="center"
 	       depth="1000"
 	       depthbuffer="true"
-	       scale="0.55"
+	       scale="0.45"
 	       tooltip=""
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.addevent="tween(scale,0.62,0.2,easeoutquad);"
-	       onout.addevent="tween(scale,0.55,0.2,easeoutquad);"
+	       onover.addevent="tween(scale,0.51,0.2,easeoutquad);"
+	       onout.addevent="tween(scale,0.45,0.2,easeoutquad);"
 	       onloaded.addevent="skin_hotspotstyle_setup();"
 	       />
 
