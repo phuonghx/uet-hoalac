@@ -39,13 +39,13 @@
 	     chỉ các pin (style minimap_spot) mới hiện con trỏ bàn tay -->
 	<layer name="minimap_img" keep="true"
 		parent="minimap_box"
-		url="minimap.jpg"
+		url="minimap.webp"
 		align="center" edge="center" x="0" y="0"
 		scale="0.1771" scale.mobile="0.1302"
 		scalechildren="true"
 		handcursor="false"
 		zorder="0"
-		onclick="minimap_imgclick();"
+	
 		/>
 
 
@@ -67,8 +67,8 @@
 		scale="0.9"
 		zorder="3"
 		handcursor="true"
-		onover="copy(layer[minimap_tip].html, scene[get(linkedscene)].title); set(layer[minimap_tip].visible,true); set(zorder,6);"
-		onout="set(layer[minimap_tip].visible,false); set(zorder,3);"
+		onover="copy(layer[minimap_tip].html, scene[get(linkedscene)].title); set(layer[minimap_tip].visible,true); set(zorder,6); tween(scale,1.05,0.15,easeoutquad);"
+		onout="set(layer[minimap_tip].visible,false); set(zorder,3); tween(scale,0.9,0.15,easeoutquad);"
 		onclick="minimap_goto(get(linkedscene));"
 		/>
 
@@ -124,7 +124,7 @@
 	       x="-160" y="205" heading="15" mmgroup="matdat"
 	       linkedscene="scene_matdat_18" spottitle="matdat_18" />
 	<layer name="mmspot_scene_matdat_19" style="minimap_spot" url="minimap_dest.png"
-	       x="-254" y="179" heading="288" mmgroup="matdat"
+	      x="-262" y="191" heading="288" mmgroup="matdat"
 	       linkedscene="scene_matdat_19" spottitle="matdat_19" />
 	<layer name="mmspot_scene_trencao_01" style="minimap_spot" url="minimap_dest.png"
 	       x="838" y="17" heading="0" mmgroup="trencao"
@@ -169,7 +169,7 @@
 		parent="minimap_img"
 		url="vtourskin_mapspotactive.png"
 		align="center" edge="bottom"
-		scale="1.67"
+		scale="1.2"
 		zorder="4"
 		enabled="false"
 		/>
@@ -249,7 +249,7 @@
 		textalign="center"
 		bgcolor="0x000000" bgalpha="0.6" bgroundedge="4"
 		bgborder="1 0xFFFFFF 0.45"
-		css="color:#FFFFFF; font-family:Arial; font-size:11px;"
+		css="color:#FFFFFF; font-family:Arial; font-size:12px;"
 		onover="set(bgalpha,0.9);"
 		onout="set(bgalpha,0.6);"
 		/>
@@ -279,7 +279,7 @@
 		vcenter="true"
 		bgroundedge="3"
 		bgborder="1 0xFFFFFF 0.35"
-		css="color:#FFFFFF; font-family:Arial; font-size:10px; text-align:center;"
+		css="color:#FFFFFF; font-family:Arial; font-size:12px; text-align:center;"
 		/>
 
 	<layer name="minimap_tab_ground" style="minimap_tab" keep="true"
@@ -362,6 +362,49 @@
 	<!-- ============ ACTIONS ============ -->
 
 	<!-- trỏ pin đỏ + radar sang spot của scene hiện tại -->
+	<!-- ============ HIEU UNG HUT MAT ============ -->
+
+	<!--
+		Chi pin vi tri hien tai dap nhe. Khong cho ca 28 pin nhay: 18 pin cung
+		nhay thi khong con cai nao noi bat, lai da nhau voi pin do + non radar.
+
+		delayedcall co DAT TEN nen mo/dong so do nhieu lan cung chi co mot vong
+		lap chay; khong ten thi moi lan goi lai chong them mot vong nua.
+	-->
+	<action name="minimap_pulse" autorun="onstart">
+		if(layer[minimap_active].visible,
+			tween(layer[minimap_active].scale, 1.34, 0.55, easeoutsine,
+				tween(layer[minimap_active].scale, 1.2, 0.55, easeinsine);
+			);
+		);
+		delayedcall(mm_pulse, 1.5, minimap_pulse(); );
+	</action>
+
+	<!--
+		Gon song mot lan khi mo so do: cac pin loe to roi ve cu, lech nhau 0.04s
+		nen chay thanh lan song tu trai sang. Hut mat duoc nhu blink nhung khong
+		lap mai -> khong thanh nhieu.
+	-->
+	<action name="minimap_ripple">
+		minimap_ripple_step(0);
+	</action>
+
+	<action name="minimap_ripple_step">
+		txtadd(mm_rn, 'mmspot_', get(scene[%1].name));
+		if(layer[get(mm_rn)],
+			if(layer[get(mm_rn)].visible,
+				tween(layer[get(mm_rn)].scale, 1.25, 0.3, easeoutsine,
+					tween(layer[get(mm_rn)].scale, 0.9, 0.4, easeinsine);
+				);
+			);
+		);
+		calc(mm_rnext, %1 + 1);
+		if(mm_rnext LT scene.count,
+			delayedcall(mm_ripple, 0.04, minimap_ripple_step(get(mm_rnext)); );
+		);
+	</action>
+
+
 	<action name="minimap_update">
 
 		<!-- hiện lại icon thường của điểm vừa rời đi -->
@@ -385,6 +428,7 @@
 			copy(layer[minimap_radar].heading, layer[get(mm_spotname)].heading);
 
 			set(layer[minimap_active].visible, true);
+			set(layer[minimap_active].scale, 1.2);
 			set(layer[minimap_radar].visible, true);
 
 			<!-- ẩn icon thường tại chỗ đó, chỉ còn pin active -->
@@ -498,7 +542,7 @@
 	</action>
 
 
-	<!-- click vào ảnh sơ đồ: phóng to / thu nhỏ (như hatinh) -->
+	<!-- click vào ảnh sơ đồ: phóng to / thu nhỏ  -->
 	<action name="minimap_imgclick">
 		if(!minimap_picking, minimap_toggleexpand(); );
 	</action>
@@ -513,6 +557,7 @@
 	<action name="minimap_show">
 		if(%1,
 			set(layer[minimap_box].visible, true);
+			minimap_ripple();
 		,
 			set(layer[minimap_box].visible, false);
 		);
@@ -531,6 +576,7 @@
 			tween(layer[minimap_box].width|layer[minimap_box].height, calc('' + mm_bw + '|' + mm_bh), 0.5, easeoutquad);
 			tween(layer[minimap_img].scale, get(mm_s), 0.5, easeoutquad);
 			set(layer[minimap_expandbtn].html, 'Phóng to');
+			set(layer[minimap_tip].css, 'color:#FFFFFF; font-family:Arial; font-size:11px;');
 
 		,
 
@@ -546,6 +592,7 @@
 			tween(layer[minimap_box].width|layer[minimap_box].height, calc('' + mm_bw + '|' + mm_bh), 0.5, easeoutquad);
 			tween(layer[minimap_img].scale, get(mm_s), 0.5, easeoutquad);
 			set(layer[minimap_expandbtn].html, 'Thu nhỏ');
+			set(layer[minimap_tip].css, 'color:#FFFFFF; font-family:Arial; font-size:14px;');
 
 		);
 	</action>

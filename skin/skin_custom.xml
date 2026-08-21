@@ -17,7 +17,7 @@
 		2) Action skin_arrange_buttons (vtourskin.xml dòng 642) TỰ TÍNH LẠI
 		   visible và x cho các nút gốc mỗi lần resize:
 		     skin_btn_navi, skin_btn_prev, skin_btn_next, skin_btn_thumbs,
-		     skin_btn_map, skin_btn_gyro, skin_btn_vr, skin_btn_fs, skin_btn_hide
+		     skin_btn_map, skin_btn_gyro, skin_btn_vr, skin_btn_fs
 		   => Đặt x hay visible cho mấy nút đó ở đây là vô ích, bị ghi đè ngay.
 		      Nút thêm mới phải ĐẶT TÊN KHÁC thì mới giữ được vị trí.
 
@@ -28,8 +28,8 @@
 	<!--
 		design_skin_images : sprite của hatinh; phần trên giữ layout chuẩn krpano,
 		                     phần dưới có thêm icon home (0|760) và logo FIMO (0|1030)
-		design_bgcolor/alpha : trắng mờ 0.18. Muốn trong suốt hẳn như hatinh thì
-		                     để design_bgalpha="0"; đậm hơn thì tăng dần 0.25 / 0.3.
+		design_bgcolor/alpha : bỏ nền hẳn (alpha 0), thanh công cụ trong suốt.
+		                     Muốn có nền trắng mờ trở lại thì đặt 0.18 / 0.25 / 0.3.
 		thumbs             : false = bỏ dải thumbnail cuộn ngang, thay bằng
 		                     bảng lưới "Tất cả các điểm" (skin/gallery.xml)
 	-->
@@ -47,13 +47,14 @@
 
 		controlbar_width="-24"
 		controlbar_height="40"
+		controlbar_height.mobile="48"
 		controlbar_offset="20"
 		controlbar_offset_closed="-40"
 
 		design_skin_images="vtourskin-check-in.png"
 
 		design_bgcolor="0xFFFFFF"
-		design_bgalpha="0.18"
+		design_bgalpha="0.1"
 		design_bgborder="0"
 		design_bgroundedge="4"
 		design_bgshadow="0"
@@ -70,10 +71,84 @@
 
 
 	<!--
-		Bốn nút btn_gallery / btn_minimap / btn_home / btn_fimo giờ nằm TRỰC TIẾP
+		Các nút btn_gallery / btn_minimap / btn_home / btn_vnu / btn_uet / btn_fimo giờ nằm TRỰC TIẾP
 		trong skin/vtourskin.xml, ngay trong <layer name="skin_control_bar_buttons">,
 		đúng cách bên hatinh làm. Khai báo từ file ngoài bằng parent="..." không lên.
 	-->
+
+	<!-- ============ CỤM LOGO: TỰ CO CHO VỪA MÀN HÌNH ============ -->
+
+	<!--
+		btn_vnu / btn_uet / btn_fimo nằm trong vtourskin.xml với x cố định
+		(128 / 170 / 212) tính cho màn hình rộng. Trên điện thoại 360px trở
+		xuống, chỗ đó đè lên nút gyro + toàn màn hình ở mép phải.
+
+		Action này tính lại scale và x theo bề ngang thật của thanh:
+		  - còn chỗ  -> giữ nguyên cỡ desktop
+		  - hơi chật -> co đều cả cụm
+		  - quá chật -> ẩn logo FIMO, chia lại chỗ cho hai logo trường
+		    (đổi thứ tự ưu tiên thì sửa nhánh "lg_f LT 0.62" bên dưới)
+	-->
+	<events name="skin_custom_events" keep="true"
+		onxmlcomplete="delayedcall(0.2, skin_custom_logos(); );"
+		onresize="skin_custom_logos();"
+		/>
+
+	<action name="skin_custom_logos">
+		if(layer[btn_vnu],
+			<!-- controlbar_width = -24 nghĩa là rộng bằng stage trừ 24 -->
+			calc(lg_barw, stagewidth - 24);
+
+			<!--
+				Mốc trái/phải khác nhau theo thiết bị vì nút to hơn trên mobile:
+				  desktop: nút 32px, ba nút trái hết ở 118 -> logo từ 128
+				  mobile : nút 40px, bước nhảy 44, ba nút trái hết ở 134 -> logo từ 144
+				Mép phải chừa cho gyro + toàn màn hình, cộng khe hở.
+			-->
+			if(device.mobile,
+				set(lg_left, 144);  set(lg_right, 110);
+			  ,
+				set(lg_left, 128);  set(lg_right, 100);
+			);
+			calc(lg_avail, lg_barw - lg_left - lg_right);
+
+			<!-- bề ngang cụm ở cỡ desktop: 34 + 8 + 34 + 8 + 57.6 -->
+			set(lg_need, 141.6);
+			set(lg_fimo, true);
+			calc(lg_f, lg_avail / lg_need);
+			if(lg_f GT 1.0, set(lg_f, 1.0); );
+
+			<!--
+				Chỉ giữ FIMO khi ba logo vẫn còn ít nhất 75% cỡ chuẩn (~25px).
+				Ngưỡng thấp hơn thì sinh chuyện ngược đời: màn 375px hiện đủ
+				ba logo nhưng mỗi cái chỉ 23px, trong khi màn 360px hẹp hơn
+				lại được 34px vì đã bỏ FIMO.
+			-->
+			if(lg_f LT 0.75,
+				set(lg_fimo, false);
+				set(lg_need, 76);
+				calc(lg_f, lg_avail / lg_need);
+				if(lg_f GT 1.0, set(lg_f, 1.0); );
+				if(lg_f LT 0.5, set(lg_f, 0.5); );
+			);
+
+			calc(lg_s,   0.133 * lg_f);
+			calc(lg_w,   256 * lg_s);
+			calc(lg_gap, 8 * lg_f);
+
+			set(layer[btn_vnu].scale, get(lg_s));
+			set(layer[btn_uet].scale, get(lg_s));
+			copy(layer[btn_vnu].x, lg_left);
+			calc(layer[btn_uet].x, lg_left + lg_w + lg_gap);
+
+			set(layer[btn_fimo].visible, get(lg_fimo));
+			if(lg_fimo,
+				calc(layer[btn_fimo].scale, 0.45 * lg_f);
+				calc(layer[btn_fimo].x, lg_left + 2*(lg_w + lg_gap));
+			);
+		);
+	</action>
+
 
 	<!-- ============ TOOLTIP TIẾNG VIỆT ============ -->
 
@@ -81,10 +156,11 @@
 		delayedcall(0.5,
 			skin_custom_tip(skin_btn_gyro, 'Xoay theo điện thoại');
 			skin_custom_tip(skin_btn_fs,   'Toàn màn hình');
-			skin_custom_tip(skin_btn_hide, 'Ẩn thanh điều khiển');
 			skin_custom_tip(btn_gallery,   'Tất cả các điểm');
 			skin_custom_tip(btn_minimap,   'Sơ đồ khuôn viên');
 			skin_custom_tip(btn_home,      'Về điểm đầu tiên');
+			skin_custom_tip(btn_vnu,       'Đại học Quốc gia Hà Nội');
+			skin_custom_tip(btn_uet,       'Trường Đại học Công nghệ');
 			skin_custom_tip(btn_fimo,      'Powered by FIMO');
 		);
 	</action>

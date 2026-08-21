@@ -272,7 +272,7 @@
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="135.835" vlookat="-20.110" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/matdat_08.tiles/preview.jpg" />
 
@@ -547,12 +547,7 @@
 		</image>
 
 		<!-- lên góc nhìn trên cao: matdat_19 -> trencao_11 -->
-		<hotspot name="hs_to_trencao_11" style="skin_viewpointstyle"
-		         url="skin/hotspot_drone.png"
-		         ath="46.391" atv="-31.073"
-		         linkedscene="scene_trencao_11"
-		         onloaded="skin_viewpoint_tip();"
-		         depth="525" />
+
 		<hotspot name="spot1" style="skin_aheadstyle" ath="-175.652" atv="0.533" linkedscene="scene_matdat_18" linkedscene_lookat="95.06,-0.02,120"
 		         onloaded="animation_hotspot(128,128,20,25); skin_ahead_label();" />
 		<hotspot name="spot2" style="skin_viewpointstyle"
@@ -578,7 +573,7 @@
 		<hotspot name="hs2"  ath="78.21444138206891" atv="-0.7321213317281536"  style="callout" rotate="45"  
 		title="Bãi đỗ xe"
 				content="Bãi đỗ xe nhập học"/>
-						<hotspot name="hs1"  ath="30.57945699555188" atv="-13.306714629787614" style="callout" rotate="-45" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		<hotspot name="hs1"  ath="30.57945699555188" atv="-13.306714629787614" style="callout" rotate="-45" callout_bg_border="0,2,0,0"  animation="keep_opened" onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 		title="Trường Đại Học Công Nghệ"
 				/>
 	</scene>
@@ -844,7 +839,12 @@
 		         linkedscene="scene_matdat_13"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="519" />
-
+		<hotspot name="callout" style="callout" rotate="45" callout_bg_border="0,0,0,2"  animation="keep_opened"
+		
+		         ath="-143.420" atv="1.145"
+				title="Trường Đại Học Công Nghệ"
+		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
+		         depth="956" />
 
 	</scene>
 
@@ -891,7 +891,12 @@
 		         linkedscene="scene_matdat_11"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="409" />
-
+		<hotspot name="callout" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		
+		         ath="-35.420" atv="2.145"
+				title="Trường Đại Học Công Nghệ"
+		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
+		         depth="956" />
 
 	</scene>
 
@@ -932,11 +937,11 @@
 		         depth="925" />
 
 		<!-- sang canh tren cao khac: trencao_07 -> trencao_11 -->
-		<hotspot name="hs_air_trencao_11" style="skin_viewpointstyle"
-		         url="skin/hotspot_drone.png"
-		         ath="-153.420" atv="-1.945"
-		         linkedscene="scene_trencao_11"
-		         onloaded="skin_viewpoint_tip();"
+		<hotspot name="callout" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		
+		         ath="-153.420" atv="5.945"
+				title="Trường Đại Học Công Nghệ"
+		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 		         depth="956" />
 
 		<!-- xuống góc nhìn mặt đất: trencao_07 -> matdat_17 -->
@@ -966,7 +971,7 @@
 
 	</scene>
 
-	<scene name="scene_trencao_08" title="trencao_08" onstart="minimap_update();" thumburl="panos/trencao_08.tiles/thumb.jpg" lat="20.99846056" lng="105.49903539" heading="0.0">
+	<scene name="scene_trencao_08" title="Tầm nhìn trên cao - Vòng xuyến gần Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_08.tiles/thumb.jpg" lat="20.99846056" lng="105.49903539" heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1056,7 +1061,7 @@ title="Bãi đỗ xe"
 
 	</scene>
 
-	<scene name="scene_trencao_09" title="trencao_09" onstart="minimap_update();" thumburl="panos/trencao_09.tiles/thumb.jpg" lat="20.99221067" lng="105.49823819" heading="0.0">
+	<scene name="scene_trencao_09" title="Tầm nhìn trên cao - Cổng số 5" onstart="minimap_update();" thumburl="panos/trencao_09.tiles/thumb.jpg" lat="20.99221067" lng="105.49823819" heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1100,12 +1105,12 @@ title="Bãi đỗ xe"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="696" />
 	<hotspot name="hs2"  ath="140.371" atv="7.710" style="callout" rotate="145"  
-		title="Trường Đại Học Công Nghệ" animation="keep_opened"
+		title="Trường Đại Học Công Nghệ" animation="keep_opened" onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 				/>
 		
 	</scene>
 
-	<scene name="scene_trencao_10" title="trencao_10" onstart="minimap_update();" thumburl="panos/trencao_10.tiles/thumb.jpg" lat="20.99621983" lng="105.49637903" heading="0.0">
+	<scene name="scene_trencao_10" title="Tầm nhìn trên cao - Toàn cảnh Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_10.tiles/thumb.jpg" lat="20.99621983" lng="105.49637903" heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1147,7 +1152,7 @@ title="Bãi đỗ xe"
 	
 	</scene>
 
-	<scene name="scene_trencao_11" title="Tầm nhìn trên cao - Cổng Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_11.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_trencao_11" title="Tầm nhìn trên cao - Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_11.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
