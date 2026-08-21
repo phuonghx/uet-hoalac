@@ -1,0 +1,294 @@
+<krpano>
+
+	<!--
+		========================================================================
+		CÔNG CỤ VẼ POLYGON HOTSPOT
+		========================================================================
+
+		Q          bật / tắt chế độ vẽ
+		bấm nền    thêm một đỉnh tại chỗ bấm
+		kéo chấm   dời đỉnh đó sang chỗ khác
+		Z          bỏ đỉnh vừa thêm
+		Enter      chốt, xuất XML ra bảng copy được
+		Esc        xoá hết, vẽ lại từ đầu
+
+		Kết quả dán thẳng vào <scene>:
+
+		    <hotspot name="poly1" style="mypolygonalhotspotstylename">
+		        <point ath="..." atv="..." />
+		        ...
+		    </hotspot>
+
+		====================================================================
+		VÌ SAO DÒ ĐỈNH BẰNG TOẠ ĐỘ MÀN HÌNH, KHÔNG DÙNG SỰ KIỆN CỦA CHẤM?
+
+		Lúc vẽ có một lớp phủ kín màn hình, để click không rơi vào các hotspot
+		điều hướng sẵn có. Nhưng trong krpano layer luôn nằm TRÊN hotspot, nên
+		lớp phủ nuốt hết chuột — chấm đỉnh (vốn là hotspot) không thể nhận
+		click hay kéo. Đây là lý do bản trước không kéo được.
+
+		Nên gom toàn bộ xử lý về lớp phủ: khi nhấn chuột, đổi từng đỉnh sang
+		toạ độ màn hình bằng spheretoscreen rồi so khoảng cách với con trỏ.
+		Gần một đỉnh thì kéo đỉnh đó, không gần cái nào thì thêm đỉnh mới.
+		====================================================================
+
+		Chỉ là công cụ lúc dựng tour. Xong việc thì gỡ dòng include trong tour.xml.
+	-->
+
+
+	<!-- ============ STYLE CHO POLYGON THẬT ============ -->
+
+	<action name="polygonhotspot_blink">
+		tween(hotspot[%1].borderwidth, 3, 1);
+		tween(hotspot[%1].bordercolor, 0xffffff);
+		delayedcall(1.0, tween(hotspot[%1].borderwidth, 1, 1); );
+		delayedcall(2, polygonhotspot_blink(%1); );
+	</action>
+
+	<!--
+		Style KHONG tu goi polygonhotspot_blink nua.
+		Trong onloaded cua <style>, get(name) tra ve rong nen blink khong biet
+		tac dong vao hotspot nao. Phai goi tu onloaded cua chinh hotspot:
+
+		    <hotspot name="poly1" style="mypolygonalhotspotstylename"
+		             onloaded="polygonhotspot_blink(get(name));">
+	-->
+	<style name="mypolygonalhotspotstylename"
+		capture="false"
+		fillcolor="0xFFEE7A"
+		fillalpha="0.4"
+		borderwidth="1"
+		bordercolor="0xffffff"
+		borderalpha="1.0"
+		onhover="tween(fillalpha,0.42)"
+		onout="tween(fillalpha,0.22)"
+		/>
+
+
+	<!-- ============ POLYGON ĐANG VẼ ============ -->
+
+	<hotspot name="polytool_poly" keep="true" visible="false"
+		zorder="900"
+		capture="false" enabled="false"
+		fillcolor="0xFFD600" fillalpha="0.18"
+		borderwidth="2" bordercolor="0xFFD600" borderalpha="1.0"
+		/>
+
+	<!-- chấm đỉnh chỉ để nhìn; chuột do lớp phủ lo -->
+	<style name="polytool_dot" keep="true"
+		url="polydot.png"
+		zoom="false" distorted="false"
+		edge="center"
+		scale="0.8"
+		zorder="901"
+		enabled="false"
+		/>
+
+
+	<!-- ============ LỚP PHỦ BẮT CHUỘT ============ -->
+
+	<layer name="polytool_capture" keep="true" visible="false"
+		type="container"
+		align="lefttop" x="0" y="0" width="100%" height="100%"
+		bgalpha="0" bgcapture="true"
+		zorder="890"
+		ondown="polytool_down();"
+		/>
+
+
+	<!-- ============ BẢNG HƯỚNG DẪN / KẾT QUẢ ============ -->
+
+	<layer name="polytool_hint" keep="true" visible="false"
+		type="text"
+		align="lefttop" x="14" y="14" zorder="895"
+		padding="8 12"
+		bgcolor="0x101820" bgalpha="0.92" bgroundedge="6"
+		bgborder="1 0xFFD600 0.8"
+		enabled="false"
+		css="color:#FFFFFF; font-family:Arial; font-size:12px; line-height:1.6;"
+		/>
+
+	<layer name="polytool_dump" keep="true" visible="false"
+		type="text"
+		align="center" width="76%" height="76%" zorder="960"
+		bgcolor="0x101820" bgalpha="0.97" bgroundedge="8"
+		bgborder="2 0xFFD600 0.9"
+		padding="14"
+		selectable="true" htmlscrollbars="true"
+		css="color:#FFE9A8; font-family:Consolas,monospace; font-size:12px;"
+		/>
+
+	<layer name="polytool_dumpclose" keep="true" visible="false"
+		type="text"
+		parent="polytool_dump"
+		align="righttop" x="8" y="8" zorder="961"
+		padding="3 9"
+		bgcolor="0xFFD600" bgalpha="0.95" bgroundedge="4"
+		css="color:#101820; font-family:Arial; font-size:12px; font-weight:600;"
+		html="Đóng"
+		onclick="set(layer[polytool_dump].visible,false); set(layer[polytool_dumpclose].visible,false);"
+		/>
+
+
+	<!-- ============ PHÍM ============ -->
+
+	<events name="polytool_events" keep="true" onkeydown="polytool_keys();" />
+
+	<action name="polytool_keys">
+		if(keycode == 81, polytool_toggle(); );
+		if(polytool_on,
+			if(keycode == 13, polytool_finish(); );
+			if(keycode == 27, polytool_clear(); polytool_status(); );
+			if(keycode == 90, polytool_undo(); );
+		);
+	</action>
+
+	<action name="polytool_toggle">
+		if(polytool_on,
+			set(polytool_on, false);
+			polytool_clear();
+			set(layer[polytool_capture].visible, false);
+			set(layer[polytool_hint].visible, false);
+		,
+			set(polytool_on, true);
+			polytool_clear();
+			set(layer[polytool_capture].visible, true);
+			set(layer[polytool_hint].visible, true);
+			polytool_status();
+		);
+	</action>
+
+
+	<!-- ============ NHẤN CHUỘT: KÉO ĐỈNH CŨ HOẶC THÊM ĐỈNH MỚI ============ -->
+
+	<action name="polytool_down">
+		set(hit, -1);
+		copy(n, hotspot[polytool_poly].point.count);
+
+		for(set(i,0), i LT n, inc(i),
+			spheretoscreen(hotspot[polytool_poly].point[get(i)].ath,
+			               hotspot[polytool_poly].point[get(i)].atv, px, py);
+			sub(dx, get(px), get(mouse.stagex));
+			sub(dy, get(py), get(mouse.stagey));
+			mul(dx, get(dx));
+			mul(dy, get(dy));
+			add(d2, get(dx), get(dy));
+			<!-- 576 = 24px: bán kính bắt dính quanh mỗi đỉnh -->
+			if(d2 LT 576,
+				set(hit, get(i));
+				copy(i, n);
+			);
+		);
+
+		if(hit GE 0,
+			polytool_dragpoint(get(hit));
+		,
+			polytool_addpoint();
+		);
+	</action>
+
+	<action name="polytool_dragpoint">
+		set(layer[polytool_hint].html, 'Đang kéo đỉnh — thả chuột để chốt');
+		asyncloop(layer[polytool_capture].pressed,
+			screentosphere(mouse.stagex, mouse.stagey, dath, datv);
+			set(hotspot[polytool_poly].point[%1].ath, get(dath));
+			set(hotspot[polytool_poly].point[%1].atv, get(datv));
+			txtadd(dn, 'polytool_dot_', %1);
+			copy(hotspot[get(dn)].ath, dath);
+			copy(hotspot[get(dn)].atv, datv);
+		  ,
+			polytool_status();
+		);
+	</action>
+
+	<action name="polytool_addpoint">
+		screentosphere(mouse.stagex, mouse.stagey, pt_ath, pt_atv);
+		copy(idx, hotspot[polytool_poly].point.count);
+
+		hotspot[polytool_poly].point.createarrayitem(get(idx));
+		set(hotspot[polytool_poly].point[get(idx)].ath, get(pt_ath));
+		set(hotspot[polytool_poly].point[get(idx)].atv, get(pt_atv));
+
+		txtadd(dotname, 'polytool_dot_', get(idx));
+		addhotspot(get(dotname));
+		hotspot[get(dotname)].loadstyle(polytool_dot);
+		copy(hotspot[get(dotname)].ath, pt_ath);
+		copy(hotspot[get(dotname)].atv, pt_atv);
+
+		if(hotspot[polytool_poly].point.count GE 3,
+			set(hotspot[polytool_poly].visible, true);
+		);
+
+		<!-- kéo luôn đỉnh vừa đặt: chưa ưng chỗ thì rê ngay, không phải bấm lại -->
+		polytool_dragpoint(get(idx));
+	</action>
+
+
+	<!-- ============ BỎ ĐỈNH / XOÁ HẾT ============ -->
+
+	<action name="polytool_undo">
+		copy(n, hotspot[polytool_poly].point.count);
+		if(n GT 0,
+			dec(n);
+			txtadd(dotname, 'polytool_dot_', get(n));
+			removehotspot(get(dotname));
+			hotspot[polytool_poly].point.removearrayitem(get(n));
+			if(hotspot[polytool_poly].point.count LT 3,
+				set(hotspot[polytool_poly].visible, false);
+			);
+			polytool_status();
+		);
+	</action>
+
+	<action name="polytool_clear">
+		copy(n, hotspot[polytool_poly].point.count);
+		for(set(i,0), i LT n, inc(i),
+			txtadd(dotname, 'polytool_dot_', get(i));
+			removehotspot(get(dotname));
+		);
+		for(copy(k, n), k GT 0, dec(k),
+			hotspot[polytool_poly].point.removearrayitem( calc(k - 1) );
+		);
+		set(hotspot[polytool_poly].visible, false);
+	</action>
+
+
+	<!-- ============ TRẠNG THÁI ============ -->
+
+	<action name="polytool_status">
+		txtadd(msg,
+			'[b]VẼ POLYGON[/b] — ', get(hotspot[polytool_poly].point.count), ' đỉnh[br]',
+			'Bấm nền để thêm đỉnh · kéo chấm để dời[br]',
+			'[b]Z[/b] bỏ đỉnh cuối · [b]Esc[/b] xoá hết[br]',
+			'[b]Enter[/b] xuất XML · [b]Q[/b] thoát');
+		set(layer[polytool_hint].html, get(msg));
+	</action>
+
+
+	<!-- ============ XUẤT XML ============ -->
+
+	<action name="polytool_finish">
+		copy(n, hotspot[polytool_poly].point.count);
+		if(n LT 3,
+			set(layer[polytool_hint].html, 'Cần ít nhất 3 đỉnh mới tạo được polygon.');
+		,
+			set(out, '');
+			txtadd(out, get(out), '&lt;hotspot name="poly1" style="mypolygonalhotspotstylename"&gt;[br]');
+			for(set(i,0), i LT n, inc(i),
+				txtadd(out, get(out),
+					'&#160;&#160;&#160;&#160;&lt;point ath="', get(hotspot[polytool_poly].point[get(i)].ath),
+					'" atv="', get(hotspot[polytool_poly].point[get(i)].atv), '" /&gt;[br]');
+			);
+			txtadd(out, get(out), '&lt;/hotspot&gt;');
+
+			set(layer[polytool_dump].html, '');
+			txtadd(layer[polytool_dump].html,
+				'[b]Dán khối này vào &lt;scene&gt; trong tour.xml[/b][br]',
+				'Đổi name="poly1" cho khác nhau nếu một scene có nhiều polygon.[br][br]',
+				get(out));
+			set(layer[polytool_dump].visible, true);
+			set(layer[polytool_dumpclose].visible, true);
+		);
+	</action>
+
+</krpano>

@@ -67,7 +67,7 @@
 		scale="0.9"
 		zorder="3"
 		handcursor="true"
-		onover="minimap_hover(get(spottitle)); set(zorder,6);"
+		onover="copy(layer[minimap_tip].html, scene[get(linkedscene)].title); set(layer[minimap_tip].visible,true); set(zorder,6);"
 		onout="set(layer[minimap_tip].visible,false); set(zorder,3);"
 		onclick="minimap_goto(get(linkedscene));"
 		/>
@@ -276,10 +276,10 @@
 		parent="minimap_box"
 		zorder="10"
 		width="56" height="19"
-		vcenter="true" textalign="center"
+		vcenter="true"
 		bgroundedge="3"
 		bgborder="1 0xFFFFFF 0.35"
-		css="color:#FFFFFF; font-family:Arial; font-size:10px;"
+		css="color:#FFFFFF; font-family:Arial; font-size:10px; text-align:center;"
 		/>
 
 	<layer name="minimap_tab_ground" style="minimap_tab" keep="true"
@@ -501,16 +501,6 @@
 	<!-- click vào ảnh sơ đồ: phóng to / thu nhỏ (như hatinh) -->
 	<action name="minimap_imgclick">
 		if(!minimap_picking, minimap_toggleexpand(); );
-	</action>
-
-
-	<action name="minimap_hover">
-		if('%1' == '',
-			set(layer[minimap_tip].visible, false);
-		,
-			set(layer[minimap_tip].html, '%1');
-			set(layer[minimap_tip].visible, true);
-		);
 	</action>
 
 

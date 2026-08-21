@@ -22,9 +22,53 @@
 	<script>
 		// Dang phat trien: them dau thoi gian de trinh duyet khong dung ban XML cu.
 		// Truoc khi dua tour len that thi doi lai thanh  xml:"tour.xml"
-		embedpano({xml:"tour.xml?v=" + Date.now(), target:"pano", html5:"only", mobilescale:1.0, passQueryParameters:"startscene,startlookat"});
+		// Bien giu doi tuong krpano, dung cho getKrpano() ben duoi.
+		var krpano = null;
+
+		embedpano({
+			xml: "tour.xml?v=" + Date.now(),
+			target: "pano",
+			html5: "only",
+			mobilescale: 1.0,
+			passQueryParameters: "startscene,startlookat",
+			onready: function(kr) { krpano = kr; }
+		});
+
+		// Lay doi tuong krpano tu Javascript.
+		//   getKrpano().get("xml.scene")
+		//   getKrpano().set("layer[minimap_box].visible", false)
+		//   getKrpano().call("loadscene(scene_matdat_01)")
+		// Tra ve null neu goi truoc khi viewer san sang.
+		function getKrpano() {
+			if (!krpano) {
+				krpano = document.getElementById("krpanoSWFObject");
+			}
+			return krpano || null;
+		}
+
+		// Chay ham sau khi viewer da san sang. Dung cai nay thay vi goi
+		// getKrpano() ngay luc trang vua tai - luc do viewer chua ton tai.
+		function whenKrpanoReady(fn) {
+			if (getKrpano()) { fn(getKrpano()); return; }
+			var t = setInterval(function () {
+				if (getKrpano()) { clearInterval(t); fn(getKrpano()); }
+			}, 100);
+		}
 	</script>
 </div>
-
+<script>
+		   
+		    
+	 function remove_watermark() {
+	      const layer = getKrpano().get("layer").getArray();
+			  console.log("layer", layer);
+			    const callout_logo = layer.filter((e) => {
+            return e.zorder === "100000";
+         });
+		 console.log("callout_logo", callout_logo);
+         getKrpano().set(`layer[${callout_logo[0].name}].keep`, false);
+         getKrpano().set(`layer[${callout_logo[0].name}].visible`, false);
+      }
+</script>
 </body>
 </html>
