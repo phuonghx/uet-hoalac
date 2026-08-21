@@ -38,6 +38,12 @@
 		              ?startscene=0&amp;startlookat=0,0,140,0,0;
 		              index.html đã có passQueryParameters nên link mở vào đúng cảnh.
 	-->
+	<!--
+		viewpoint_fx : hieu ung cho icon "len tren cao" / "xuong mat dat"
+		  bob  = dap denh len xuong
+		  halo = vong sang lan toa
+		  none = tat
+	-->
 	<skin_settings
 
 		title="false"
@@ -65,6 +71,8 @@
 		thumbs="false"
 
 		deeplinking="true"
+
+		viewpoint_fx="halo"
 
 		webvr="false"
 		/>

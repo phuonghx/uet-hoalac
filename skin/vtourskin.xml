@@ -512,6 +512,67 @@
 			set(layer[get(vlb)].bg, false);
 			set(layer[get(vlb)].padding, '0');
 			set(layer[get(vlb)].css, 'color:#FFFFFF; font-family:Arial; font-size:15px; font-weight:700; line-height:1.25; text-align:center; text-shadow:0 2px 4px #000, 0 0 8px #000, 0 0 2px #000;');
+
+			<!-- hieu ung hut mat, chon kieu o skin_settings.viewpoint_fx -->
+			if(skin_settings.viewpoint_fx == 'bob',  skin_viewpoint_fx_bob(get(name));  );
+			if(skin_settings.viewpoint_fx == 'halo', skin_viewpoint_fx_halo(get(name)); );
+		);
+	</action>
+
+
+	<!--
+		=== KIEU 1: DAP DENH ===
+		Chay tren oy chu khong phai scale, vi scale da bi hover chiem
+		(style tween 0.45 <-> 0.51); hai ben cung tween mot bien thi giat.
+
+		Dieu kien dung: hotspot con ton tai VA con enabled. Luc bam vao icon,
+		skin_hotspotstyle_click dat enabled=false roi tween oy ve -50 de icon
+		bay di - vong lap phai nhuong, khong thi gianh lai oy giua chung.
+	-->
+	<action name="skin_viewpoint_fx_bob">
+		if(hotspot[%1],
+			if(hotspot[%1].enabled,
+				tween(hotspot[%1].oy, -5, 1.0, easeinoutsine,
+					tween(hotspot[%1].oy, 5, 1.0, easeinoutsine);
+				);
+				delayedcall(2.0, skin_viewpoint_fx_bob(%1); );
+			);
+		);
+	</action>
+
+
+	<!--
+		=== KIEU 2: VONG SANG LAN TOA ===
+		Layer con cua icon (icon distorted="false" nen duoc phep co con).
+		halo.png la vong tron rong ruot, no ra tu dung mep icon roi mo dan.
+		Bat dau tu scale 0.5 (256px * 0.5 = 128px, xap xi icon 124px) nen
+		vong sang khong bao gio de len hinh drone.
+	-->
+	<action name="skin_viewpoint_fx_halo">
+		txtadd(hlo, 'halo_', %1);
+		addlayer(get(hlo));
+		set(layer[get(hlo)].url, 'skin/halo.png');
+		txtadd(hpar, 'hotspot[', %1, ']');
+		set(layer[get(hlo)].parent, get(hpar));
+		set(layer[get(hlo)].align, 'center');
+		set(layer[get(hlo)].edge, 'center');
+		set(layer[get(hlo)].enabled, false);
+		set(layer[get(hlo)].handcursor, false);
+		set(layer[get(hlo)].zorder, '1');
+		skin_viewpoint_halo_pulse(get(hlo), %1);
+	</action>
+
+	<action name="skin_viewpoint_halo_pulse">
+		if(layer[%1],
+			if(hotspot[%2].enabled,
+				set(layer[%1].scale, 0.3);
+				set(layer[%1].alpha, 0.9);
+				tween(layer[%1].scale, 0.4, 1.5, easeoutquad);
+				tween(layer[%1].alpha, 0.0,  1.5, easeoutquad);
+				delayedcall(2.2, skin_viewpoint_halo_pulse(%1, %2); );
+			  ,
+				set(layer[%1].visible, false);
+			);
 		);
 	</action>
 

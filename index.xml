@@ -516,7 +516,7 @@
 
 	</scene>
 
-	<scene name="scene_matdat_18" title="Gần Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/matdat_18.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_matdat_18" title="Gần Trường Đại học Công nghệ" onstart="minimap_update();" thumburl="panos/matdat_18.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -534,7 +534,7 @@
 
 	</scene>
 
-	<scene name="scene_matdat_19" title="Cổng Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/matdat_19.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_matdat_19" title="Cổng Trường Đại học Công nghệ" onstart="minimap_update();" thumburl="panos/matdat_19.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="true" />
 
@@ -574,7 +574,7 @@
 		title="Bãi đỗ xe"
 				content="Bãi đỗ xe nhập học"/>
 		<hotspot name="hs1"  ath="30.57945699555188" atv="-13.306714629787614" style="callout" rotate="-45" callout_bg_border="0,2,0,0"  animation="keep_opened" onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
-		title="Trường Đại Học Công Nghệ"
+		title="Trường Đại học Công nghệ"
 				/>
 	</scene>
 
@@ -842,7 +842,7 @@
 		<hotspot name="callout" style="callout" rotate="45" callout_bg_border="0,0,0,2"  animation="keep_opened"
 		
 		         ath="-143.420" atv="1.145"
-				title="Trường Đại Học Công Nghệ"
+				title="Trường Đại học Công nghệ"
 		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 		         depth="956" />
 
@@ -894,7 +894,7 @@
 		<hotspot name="callout" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
 		
 		         ath="-35.420" atv="2.145"
-				title="Trường Đại Học Công Nghệ"
+				title="Trường Đại học Công nghệ"
 		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 		         depth="956" />
 
@@ -940,7 +940,7 @@
 		<hotspot name="callout" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
 		
 		         ath="-153.420" atv="5.945"
-				title="Trường Đại Học Công Nghệ"
+				title="Trường Đại học Công nghệ"
 		         onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 		         depth="956" />
 
@@ -971,7 +971,7 @@
 
 	</scene>
 
-	<scene name="scene_trencao_08" title="Tầm nhìn trên cao - Vòng xuyến gần Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_08.tiles/thumb.jpg" lat="20.99846056" lng="105.49903539" heading="0.0">
+	<scene name="scene_trencao_08" title="Tầm nhìn trên cao - Vòng xuyến gần Đại học Công nghệ" onstart="minimap_update();" thumburl="panos/trencao_08.tiles/thumb.jpg" lat="20.99846056" lng="105.49903539" heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1105,12 +1105,12 @@ title="Bãi đỗ xe"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="696" />
 	<hotspot name="hs2"  ath="140.371" atv="7.710" style="callout" rotate="145"  
-		title="Trường Đại Học Công Nghệ" animation="keep_opened" onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
+		title="Trường Đại học Công nghệ" animation="keep_opened" onclick="skin_loadscene(scene_trencao_11, get(skin_settings.loadscene_blend));"
 				/>
 		
 	</scene>
 
-	<scene name="scene_trencao_10" title="Tầm nhìn trên cao - Toàn cảnh Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_10.tiles/thumb.jpg" lat="20.99621983" lng="105.49637903" heading="0.0">
+	<scene name="scene_trencao_10" title="Tầm nhìn trên cao - Toàn cảnh Trường Đại học Công nghệ" onstart="minimap_update();" thumburl="panos/trencao_10.tiles/thumb.jpg" lat="20.99621983" lng="105.49637903" heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -1152,7 +1152,7 @@ title="Bãi đỗ xe"
 	
 	</scene>
 
-	<scene name="scene_trencao_11" title="Tầm nhìn trên cao - Trường Đại Học Công Nghệ" onstart="minimap_update();" thumburl="panos/trencao_11.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_trencao_11" title="Tầm nhìn trên cao - Trường Đại học Công nghệ" onstart="minimap_update();" thumburl="panos/trencao_11.tiles/thumb.jpg" lat="" lng="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
