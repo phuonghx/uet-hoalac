@@ -14,7 +14,7 @@ Không dùng Google Maps, không API key, không gọi mạng — chạy offline
 | `skin/minimap.jpg` | Ảnh sơ đồ nền (629 × 357) — bạn cung cấp |
 | `plugins/radar.js` | Plugin radar chính thức của krpano |
 
-`tour.xml` thêm đúng một dòng `<include url="skin/minimap.xml" />`.
+`index.xml` thêm đúng một dòng `<include url="skin/minimap.xml" />`.
 Toàn bộ phần Google Maps / tile XYZ đã gỡ sạch, `maps="false"` giữ nguyên.
 
 ## ⚠ Đọc trước khi cắm điểm

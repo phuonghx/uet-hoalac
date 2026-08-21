@@ -3,7 +3,7 @@
 	<!-- krpano 1.20.11 - Virtual Tour Skin -->
 
 
-	<!-- skin settings (can be overridden in the tour.xml) -->
+	<!-- skin settings (can be overridden in the index.xml) -->
 	<skin_settings maps="false"
 	               maps_type="google"
 	               maps_bing_api_key=""
@@ -398,7 +398,7 @@
 	<!--
 		Nhan ten scene di kem mui ten chevron.
 
-		Khai bao TINH trong tung <scene> (xem tour.xml) chu khong tao bang
+		Khai bao TINH trong tung <scene> (xem index.xml) chu khong tao bang
 		addlayer luc chay - cach do khong len duoc.
 
 		Layer khong bi bien dang theo mat cau nen chu luon nam ngang, de doc,

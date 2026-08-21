@@ -32,7 +32,7 @@
 		Gần một đỉnh thì kéo đỉnh đó, không gần cái nào thì thêm đỉnh mới.
 		====================================================================
 
-		Chỉ là công cụ lúc dựng tour. Xong việc thì gỡ dòng include trong tour.xml.
+		Chỉ là công cụ lúc dựng tour. Xong việc thì gỡ dòng include trong index.xml.
 	-->
 
 
@@ -135,7 +135,8 @@
 	<events name="polytool_events" keep="true" onkeydown="polytool_keys();" />
 
 	<action name="polytool_keys">
-		if(keycode == 81, polytool_toggle(); );
+		<!-- Q = ve vung: chi dung duoc khi bat che do bien tap (?devmode=1) -->
+		if(devmode == 1, if(keycode == 81, polytool_toggle(); ); );
 		if(polytool_on,
 			if(keycode == 13, polytool_finish(); );
 			if(keycode == 27, polytool_clear(); polytool_status(); );
@@ -283,7 +284,7 @@
 
 			set(layer[polytool_dump].html, '');
 			txtadd(layer[polytool_dump].html,
-				'[b]Dán khối này vào &lt;scene&gt; trong tour.xml[/b][br]',
+				'[b]Dán khối này vào &lt;scene&gt; trong index.xml[/b][br]',
 				'Đổi name="poly1" cho khác nhau nếu một scene có nhiều polygon.[br][br]',
 				get(out));
 			set(layer[polytool_dump].visible, true);

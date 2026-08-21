@@ -553,7 +553,8 @@
 
 	<action name="minimap_keys">
 		if(keycode == 77, minimap_show( calc(layer[minimap_box].visible ? false : true) ); );
-		if(keycode == 80, minimap_togglepick(); );
+		<!-- P = cam diem: chi dung duoc khi bat che do bien tap (?devmode=1) -->
+		if(devmode == 1, if(keycode == 80, minimap_togglepick(); ); );
 	</action>
 
 

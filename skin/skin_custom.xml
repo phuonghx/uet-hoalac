@@ -36,7 +36,7 @@
 	<!--
 		deeplinking : cap nhat URL theo scene va hướng nhìn đang xem
 		              ?startscene=0&amp;startlookat=0,0,140,0,0;
-		              tour.html đã có passQueryParameters nên link mở vào đúng cảnh.
+		              index.html đã có passQueryParameters nên link mở vào đúng cảnh.
 	-->
 	<skin_settings
 
