@@ -72,7 +72,7 @@
 		onclick="minimap_goto(get(linkedscene));"
 		/>
 
-		<layer name="mmspot_scene_matdat_01" style="minimap_spot"
+		<layer name="mmspot_scene_matdat_01" style="minimap_spot" url="minimap_dest.png"
 	       x="824" y="21" heading="267" mmgroup="matdat"
 	       linkedscene="scene_matdat_01" spottitle="matdat_01" />
 	<layer name="mmspot_scene_matdat_02" style="minimap_spot"
@@ -99,7 +99,7 @@
 	<layer name="mmspot_scene_matdat_10" style="minimap_spot"
 	       x="436" y="111" heading="235" mmgroup="matdat"
 	       linkedscene="scene_matdat_10" spottitle="matdat_10" />
-	<layer name="mmspot_scene_matdat_11" style="minimap_spot"
+	<layer name="mmspot_scene_matdat_11" style="minimap_spot" url="minimap_dest.png"
 	       x="590" y="383" heading="326" mmgroup="matdat"
 	       linkedscene="scene_matdat_11" spottitle="matdat_11" />
 	<layer name="mmspot_scene_matdat_12" style="minimap_spot"
@@ -123,10 +123,10 @@
 	<layer name="mmspot_scene_matdat_18" style="minimap_spot"
 	       x="-160" y="205" heading="15" mmgroup="matdat"
 	       linkedscene="scene_matdat_18" spottitle="matdat_18" />
-	<layer name="mmspot_scene_matdat_19" style="minimap_spot"
+	<layer name="mmspot_scene_matdat_19" style="minimap_spot" url="minimap_dest.png"
 	       x="-254" y="179" heading="288" mmgroup="matdat"
 	       linkedscene="scene_matdat_19" spottitle="matdat_19" />
-	<layer name="mmspot_scene_trencao_01" style="minimap_spot"
+	<layer name="mmspot_scene_trencao_01" style="minimap_spot" url="minimap_dest.png"
 	       x="838" y="17" heading="0" mmgroup="trencao"
 	       linkedscene="scene_trencao_01" spottitle="trencao_01" />
 	<layer name="mmspot_scene_trencao_02" style="minimap_spot"
@@ -138,7 +138,7 @@
 	<layer name="mmspot_scene_trencao_05" style="minimap_spot"
 	       x="404" y="109" heading="52" mmgroup="trencao"
 	       linkedscene="scene_trencao_05" spottitle="trencao_05" />
-	<layer name="mmspot_scene_trencao_06" style="minimap_spot"
+	<layer name="mmspot_scene_trencao_06" style="minimap_spot" url="minimap_dest.png"
 	       x="590" y="377" heading="331" mmgroup="trencao"
 	       linkedscene="scene_trencao_06" spottitle="trencao_06" />
 	<layer name="mmspot_scene_trencao_07" style="minimap_spot"
@@ -153,7 +153,7 @@
 	<layer name="mmspot_scene_trencao_10" style="minimap_spot"
 	       x="-588" y="93" heading="95" mmgroup="trencao"
 	       linkedscene="scene_trencao_10" spottitle="trencao_10" />
-	<layer name="mmspot_scene_trencao_11" style="minimap_spot"
+	<layer name="mmspot_scene_trencao_11" style="minimap_spot" url="minimap_dest.png"
 	       x="-334" y="147" heading="0" mmgroup="trencao"
 	       linkedscene="scene_trencao_11" spottitle="trencao_11" />
 
