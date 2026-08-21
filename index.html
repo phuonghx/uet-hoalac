@@ -69,11 +69,11 @@
 		    
 	 function remove_watermark() {
 	      const layer = getKrpano().get("layer").getArray();
-			  console.log("layer", layer);
+
 			    const callout_logo = layer.filter((e) => {
             return e.zorder === "100000";
          });
-		 console.log("callout_logo", callout_logo);
+
          getKrpano().set(`layer[${callout_logo[0].name}].keep`, false);
          getKrpano().set(`layer[${callout_logo[0].name}].visible`, false);
       }
