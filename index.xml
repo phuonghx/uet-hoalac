@@ -625,7 +625,7 @@
 		         depth="421" />
 
 	<hotspot name="hs2"   ath="-71.003" atv="12.320"  style="callout" rotate="145"  
-		title="Trung tâm GDQP" animation="keep_opened"
+		title="Trung tâm GDQP" animation="keep_opened" onclick="skin_loadscene(scene_matdat_05, get(skin_settings.loadscene_blend)); skin_lookat(89.09,-1.62,135);"
 				/>
 			<hotspot name="hs1"  ath="-54.793" atv="4.944" style="callout" rotate="45" callout_bg_border="0,2,0,0"  animation="keep_opened"
 		title="Ký túc xá" onclick="skin_loadscene(scene_trencao_03, get(skin_settings.loadscene_blend));"
