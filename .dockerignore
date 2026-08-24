@@ -48,3 +48,7 @@ panos/*.tiles.bak
 Thumbs.db
 .DS_Store
 ~$*
+# Ban goc krpanotools sinh ra khi ma hoa - TUYET DOI khong duoc len image
+*.backup-*.xml
+*.backup-*
+source/

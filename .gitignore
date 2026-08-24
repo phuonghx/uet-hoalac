@@ -1,0 +1,5 @@
+# Ban goc chua ma hoa do krpanotools sinh ra khi chay encrypt.
+# Day la file DUY NHAT sua duoc - mat la khong dung lai duoc tour.
+# Nho sao luu ra ngoai o dia nay.
+*.backup-*.xml
+source/
