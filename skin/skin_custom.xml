@@ -79,7 +79,7 @@
 
 
 	<!--
-		Các nút btn_gallery / btn_minimap / btn_home / btn_vnu / btn_uet / btn_fimo giờ nằm TRỰC TIẾP
+		Các nút btn_gallery / btn_minimap / btn_home / btn_doan / btn_hoisv / btn_uet / btn_fimo giờ nằm TRỰC TIẾP
 		trong skin/vtourskin.xml, ngay trong <layer name="skin_control_bar_buttons">,
 		đúng cách bên hatinh làm. Khai báo từ file ngoài bằng parent="..." không lên.
 	-->
@@ -87,7 +87,7 @@
 	<!-- ============ CỤM LOGO: TỰ CO CHO VỪA MÀN HÌNH ============ -->
 
 	<!--
-		btn_vnu / btn_uet / btn_fimo nằm trong vtourskin.xml với x cố định
+		btn_doan / btn_hoisv / btn_uet / btn_fimo nằm trong vtourskin.xml với x cố định
 		(128 / 170 / 212) tính cho màn hình rộng. Trên điện thoại 360px trở
 		xuống, chỗ đó đè lên nút gyro + toàn màn hình ở mép phải.
 
@@ -98,12 +98,12 @@
 		    (đổi thứ tự ưu tiên thì sửa nhánh "lg_f LT 0.62" bên dưới)
 	-->
 	<events name="skin_custom_events" keep="true"
-		onxmlcomplete="delayedcall(0.2, skin_custom_logos(); );"
-		onresize="skin_custom_logos();"
+		onxmlcomplete="delayedcall(0.2, skin_custom_logos(); skin_custom_rotate_check(); );"
+		onresize="skin_custom_logos(); skin_custom_rotate_check();"
 		/>
 
 	<action name="skin_custom_logos">
-		if(layer[btn_vnu],
+		if(layer[btn_doan],
 			<!-- controlbar_width = -24 nghĩa là rộng bằng stage trừ 24 -->
 			calc(lg_barw, stagewidth - 24);
 
@@ -114,47 +114,166 @@
 				Mép phải chừa cho gyro + toàn màn hình, cộng khe hở.
 			-->
 			if(device.mobile,
-				set(lg_left, 144);  set(lg_right, 110);
+				<!-- nut 36px, buoc 40: ba nut trai het o 122 -> logo tu 132 -->
+				set(lg_left, 132);  set(lg_right, 92);  set(lg_gapbase, 6);
 			  ,
-				set(lg_left, 128);  set(lg_right, 100);
+				<!-- nut 32px, buoc 40: ba nut trai het o 118 -> logo tu 128 -->
+				set(lg_left, 128);  set(lg_right, 100); set(lg_gapbase, 8);
 			);
 			calc(lg_avail, lg_barw - lg_left - lg_right);
 
-			<!-- bề ngang cụm ở cỡ desktop: 34 + 8 + 34 + 8 + 57.6 -->
-			set(lg_need, 141.6);
+			<!--
+				Ba logo vuông (Đoàn / Hội SV / UET) cao 34px + logo FIMO rộng
+				57.6px, cách nhau 8px:  34*3 + 57.6 + 8*3 = 183.6
+			-->
+			calc(lg_need, 102 + 57.6 + 3*lg_gapbase);
 			set(lg_fimo, true);
 			calc(lg_f, lg_avail / lg_need);
 			if(lg_f GT 1.0, set(lg_f, 1.0); );
 
 			<!--
-				Chỉ giữ FIMO khi ba logo vẫn còn ít nhất 75% cỡ chuẩn (~25px).
-				Ngưỡng thấp hơn thì sinh chuyện ngược đời: màn 375px hiện đủ
-				ba logo nhưng mỗi cái chỉ 23px, trong khi màn 360px hẹp hơn
-				lại được 34px vì đã bỏ FIMO.
+				Chật quá thì bỏ FIMO trước, ba logo còn lại chia nhau chỗ:
+				34*3 + 8*2 = 118. Bốn logo mà co xuống dưới 75% thì mỗi cái
+				chưa tới 26px, đọc không ra.
 			-->
+			set(lg_show, true);
 			if(lg_f LT 0.75,
 				set(lg_fimo, false);
-				set(lg_need, 76);
+				calc(lg_need, 102 + 2*lg_gapbase);
 				calc(lg_f, lg_avail / lg_need);
 				if(lg_f GT 1.0, set(lg_f, 1.0); );
-				if(lg_f LT 0.5, set(lg_f, 0.5); );
+				<!--
+					Ba logo ma con co duoi 55% (moi cai < 19px) thi khong con
+					doc ra la logo gi nua - an han ca cum, tha trong con hon
+					bay ba dom mau vo nghia hoac de tran ra de len nut.
+				-->
+				if(lg_f LT 0.55, set(lg_show, false); );
 			);
+
+			set(layer[btn_doan].visible,  get(lg_show));
+			set(layer[btn_hoisv].visible, get(lg_show));
+			set(layer[btn_uet].visible,   get(lg_show));
+			if(!lg_show, set(lg_fimo, false); );
 
 			calc(lg_s,   0.133 * lg_f);
 			calc(lg_w,   256 * lg_s);
-			calc(lg_gap, 8 * lg_f);
+			calc(lg_gap, lg_gapbase * lg_f);
+			calc(lg_step, lg_w + lg_gap);
 
-			set(layer[btn_vnu].scale, get(lg_s));
-			set(layer[btn_uet].scale, get(lg_s));
-			copy(layer[btn_vnu].x, lg_left);
-			calc(layer[btn_uet].x, lg_left + lg_w + lg_gap);
+			set(layer[btn_doan].scale,  get(lg_s));
+			set(layer[btn_hoisv].scale, get(lg_s));
+			set(layer[btn_uet].scale,   get(lg_s));
+
+			copy(layer[btn_doan].x, lg_left);
+			calc(layer[btn_hoisv].x, lg_left + lg_step);
+			calc(layer[btn_uet].x,   lg_left + 2*lg_step);
 
 			set(layer[btn_fimo].visible, get(lg_fimo));
 			if(lg_fimo,
 				calc(layer[btn_fimo].scale, 0.45 * lg_f);
-				calc(layer[btn_fimo].x, lg_left + 2*(lg_w + lg_gap));
+				calc(layer[btn_fimo].x, lg_left + 3*lg_step);
 			);
 		);
+	</action>
+
+
+	<!-- ============ NHAC XOAY NGANG MAN HINH (CHI MOBILE) ============ -->
+
+	<!--
+		Tour 360 xem doc rat cuc: khung nhin hep ngang, phai quet lien tuc.
+		Chi hien tren dien thoai va chi khi dang cam doc.
+
+		Cho tat duoc: nguoi dung co the da khoa xoay man hinh trong he dieu
+		hanh, luc do khong xoay ngang duoc - chan cung thi ho ket luon.
+		Tat roi thi khong hien lai trong phien do nua.
+	-->
+	<layer name="rotate_hint" keep="true" type="container"
+		align="center" width="100%" height="100%"
+		bgcolor="0x101820" bgalpha="0.88"
+		zorder="99999" visible="false" bgcapture="true"
+		onclick="skin_custom_rotate_dismiss();"
+		>
+
+		<layer name="rotate_hint_icon" keep="true"
+			url="rotate_phone.png"
+			align="center" edge="center" y="-64"
+			scale="0.42" enabled="false"
+			/>
+
+		<layer name="rotate_hint_text" keep="true" type="text"
+			align="center" edge="center" y="46"
+			bg="false" enabled="false" width="86%"
+			css="color:#FFFFFF; font-family:Arial; font-size:19px; font-weight:700; text-align:center; line-height:1.45;"
+			html="Xoay ngang [br]để xem rõ hơn"
+			/>
+
+		<!--
+			Nut chinh: vao toan man hinh roi khoa huong ngang.
+			An tren Android Chrome. iOS Safari khong co screen.orientation.lock
+			nen chi vao duoc toan man hinh, nguoi dung van phai tu xoay -
+			vi the van giu nguyen loi nhac va nut bo qua ben duoi.
+		-->
+		<layer name="rotate_hint_go" keep="true" type="text"
+			visible="false"
+			align="center" edge="center" y="112"
+			bgcolor="0x1E88E5" bgalpha="1.0" bgroundedge="20"
+			padding="10 22"
+			css="color:#FFFFFF; font-family:Arial; font-size:16px; font-weight:700; text-align:center;"
+			html="Xoay ngang ngay"
+			onclick="js(lockLandscape());"
+			/>
+
+		<layer name="rotate_hint_skip" keep="true" type="text"
+			align="center" edge="center" y="164"
+			bgcolor="0xFFFFFF" bgalpha="0.14" bgroundedge="16"
+			padding="7 18"
+			css="color:#FFFFFF; font-family:Arial; font-size:15px; text-align:center;"
+			html="Bỏ qua"
+			onclick="skin_custom_rotate_dismiss();"
+			/>
+	</layer>
+
+	<action name="skin_custom_rotate_check">
+		<!-- tach tung dieu kien ra bien rieng cho de doc -->
+		set(rt_mob, false);
+		if(device.mobile, set(rt_mob, true); );
+
+		set(rt_portrait, false);
+		if(stageheight GT stagewidth, set(rt_portrait, true); );
+
+		set(rt_off, false);
+		if(rotate_hint_off == true, set(rt_off, true); );
+
+		if(rt_mob AND rt_portrait AND !rt_off,
+			set(layer[rotate_hint].visible, true);
+			skin_custom_rotate_anim();
+			if(can_autorotate,
+				set(layer[rotate_hint_go].visible, true);
+				set(layer[rotate_hint_skip].y, 164);
+			  ,
+				set(layer[rotate_hint_go].visible, false);
+				set(layer[rotate_hint_skip].y, 112);
+			);
+		  ,
+			set(layer[rotate_hint].visible, false);
+		);
+	</action>
+
+	<!-- dien thoai nghieng dan sang ngang roi ve cho, minh hoa dong tac can lam -->
+	<action name="skin_custom_rotate_anim">
+		if(layer[rotate_hint].visible,
+			tween(layer[rotate_hint_icon].rotate, -90, 1.1, easeinoutsine,
+				delayedcall(0.6,
+					tween(layer[rotate_hint_icon].rotate, 0, 0.5, easeinoutsine);
+				);
+			);
+			delayedcall(rotate_anim, 2.6, skin_custom_rotate_anim(); );
+		);
+	</action>
+
+	<action name="skin_custom_rotate_dismiss">
+		set(rotate_hint_off, true);
+		set(layer[rotate_hint].visible, false);
 	</action>
 
 
@@ -167,7 +286,8 @@
 			skin_custom_tip(btn_gallery,   'Tất cả các điểm');
 			skin_custom_tip(btn_minimap,   'Sơ đồ khuôn viên');
 			skin_custom_tip(btn_home,      'Về điểm đầu tiên');
-			skin_custom_tip(btn_vnu,       'Đại học Quốc gia Hà Nội');
+			skin_custom_tip(btn_doan,      'Đoàn Thanh niên Cộng sản Hồ Chí Minh');
+			skin_custom_tip(btn_hoisv,     'Hội Sinh viên Việt Nam');
 			skin_custom_tip(btn_uet,       'Trường Đại học Công nghệ');
 			skin_custom_tip(btn_fimo,      'Powered by FIMO');
 		);

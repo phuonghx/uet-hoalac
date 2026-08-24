@@ -54,8 +54,55 @@
 			return krpano || null;
 		}
 
-		// Chay ham sau khi viewer da san sang. Dung cai nay thay vi goi
-		// getKrpano() ngay luc trang vua tai - luc do viewer chua ton tai.
+		// Vao toan man hinh roi khoa huong ngang.
+		//
+		// screen.orientation.lock CHI chay khi trang DA fullscreen. Cac truong
+		// hop khong khoa duoc (deu binh thuong, khong phai loi):
+		//   - iOS Safari    : khong co API nay, screen.orientation.lock undefined
+		//   - May tinh      : NotSupportedError
+		//   - Chrome DevTools device mode: cung la may tinh -> NotSupportedError.
+		//     Muon thu that phai mo tren dien thoai that.
+		//   - May da khoa xoay trong he dieu hanh: lock() bi reject
+		//   - Nhung trong iframe ma trang cha thieu allowfullscreen
+		//
+		// Khi nhung iframe, trang cha PHAI co:
+		//   <iframe src="..." allowfullscreen allow="fullscreen"></iframe>
+		// May nay co the TU xoay ngang duoc khong?
+		// Phai co du ca hai: vao duoc toan man hinh VA khoa duoc huong.
+		// iPhone thieu ca hai (Safari chi cho <video> fullscreen), may tinh
+		// thieu cai thu hai. Thieu la khong hien nut "Xoay ngang ngay" - tha
+		// khong moi con hon moi roi khong lam duoc gi.
+		function canAutoRotate() {
+			var el = document.documentElement;
+			var hasFs = !!(el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen)
+			            && document.fullscreenEnabled !== false;
+			var hasLock = !!(window.screen && screen.orientation && screen.orientation.lock);
+			return hasFs && hasLock;
+		}
+
+		function lockLandscape() {
+			var el = document.documentElement;
+			var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
+			if (!req) { return; }
+
+			// Safari cu tra ve undefined thay vi Promise -> boc lai cho an toan
+			Promise.resolve(req.call(el))
+				.then(function () {
+					if (screen.orientation && screen.orientation.lock) {
+						return screen.orientation.lock("landscape");
+					}
+				})
+				.catch(function () {
+					// May khoa xoay, hoac iframe chua duoc cap quyen fullscreen.
+					// Khong lam gi them - lop nhac van con de nguoi dung tu xoay.
+				});
+		}
+
+		// bao cho krpano biet co nen hien nut tu xoay khong
+		whenKrpanoReady(function (kr) {
+			kr.set("can_autorotate", canAutoRotate());
+		});
+
 		function whenKrpanoReady(fn) {
 			if (getKrpano()) { fn(getKrpano()); return; }
 			var t = setInterval(function () {

@@ -622,10 +622,12 @@
 		<hotspot name="hs2"   ath="-71.003" atv="12.320"  style="callout" rotate="145"  
 		title="Trung tâm GDQP" animation="keep_opened" onclick="skin_loadscene(scene_matdat_05, get(skin_settings.loadscene_blend)); skin_lookat(89.09,-1.62,135);"
 				/>
-		<hotspot name="hs1"  ath="-54.793" atv="4.944" style="callout" rotate="45" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		<hotspot name="hs1"  ath="-54.793" atv="4.944" style="callout" rotate="45" callout_bg_border="0,0,0,2"  animation="keep_opened"
 		title="Ký túc xá" onclick="skin_loadscene(scene_trencao_03, get(skin_settings.loadscene_blend));"
 				/>
-
+		<hotspot name="hs3"  ath="-98.793" atv="2.244" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		title="Toàn cảnh Trường Đại học Công nghệ" onclick="skin_loadscene(scene_trencao_10, get(skin_settings.loadscene_blend));"
+				/>
 	</scene>
 
 	<scene name="scene_trencao_02" title="Tầm nhìn trên cao - Vòng xuyến GDQP" onstart="minimap_update();" thumburl="panos/trencao_02.tiles/thumb.jpg" lat="" lng="" heading="">
@@ -695,7 +697,9 @@
 		         linkedscene="scene_matdat_02"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="480" />
-
+<hotspot name="hs4"  ath="-93.793" atv="1.244" style="callout" rotate="335" callout_bg_border="0,2,0,0"  animation="keep_opened"
+		title="Toàn cảnh Trường Đại học Công nghệ" onclick="skin_loadscene(scene_trencao_10, get(skin_settings.loadscene_blend));"
+				/>
 
 		<hotspot name="hs2"  ath="20.799" atv="37.834"  style="callout" rotate="145"  
 		title="Trung tâm GDQP" animation="keep_opened"
@@ -755,7 +759,12 @@
 		         linkedscene="scene_matdat_08"
 		         onloaded="skin_viewpoint_tip();"
 		         depth="441" />
-
+		<hotspot name="callout" style="callout" rotate="45" callout_bg_border="0,0,0,2"  animation="keep_opened"
+		
+		         ath="-123.420" atv="3.145"
+				title="Toàn cảnh Trường Đại học Công nghệ"
+		         onclick="skin_loadscene(scene_trencao_10, get(skin_settings.loadscene_blend));"
+		         depth="956" />
 
 	</scene>
 
