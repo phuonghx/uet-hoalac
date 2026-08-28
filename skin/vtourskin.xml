@@ -725,7 +725,7 @@
 	<!-- ==== LINK BAN DO 3D VNU HOA LAC (goc tren ben trai) ==== -->
 	<layer name="btn_vnu3dmap" keep="true" type="text" zorder="5"
 	       align="lefttop" edge="lefttop" x="14" y="14"
-	       align.mobile="righttop" edge.mobile="righttop" x.mobile="10" y.mobile="10"
+	       align.mobile="righttop" edge.mobile="righttop" x.mobile="14" y.mobile="132"
 	       html="Bản đồ 3D VNU Hòa Lạc &#8599;"
 	       css="color:#FFFFFF; font-family:Arial,sans-serif; font-size:13px; font-weight:bold; white-space:nowrap;"
 	       css.mobile="color:#FFFFFF; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; white-space:nowrap;"
